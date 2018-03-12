@@ -4,6 +4,8 @@
 
 This document describes how I set up front end web development environment on my MacBook Air with macOS High Sierra 10.13.3.
 
+### Table of Contents
+
 - [System Preferences](#system-preferences)
 - [Terminal](#terminal)
 - [Bash](#bash)
@@ -29,13 +31,13 @@ After clean install of operating system, there are a couple tweaks I like to mak
 ### Set Dock size
 
 ```shell
-defaults write com.apple.dock tilesize -int 35; killall Dock
+$ defaults write com.apple.dock tilesize -int 35; killall Dock
 ```
 
 ### Disable "Press and hold"
 
 ```shell
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+$ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 ```
 
 ### Reset icons in Launchpad
@@ -43,7 +45,7 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 I usually use this command after installing every application that I need - it keeps Apple applications on the first page and moves the rest to the next pages.
 
 ```shell
-defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock
+$ defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock
 ```
 
 ### Show hidden files
@@ -51,19 +53,19 @@ defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock
 This can also be done by pressing `Command ⌘` + `Shift ⇧` + `.`.
 
 ```shell
-defaults write com.apple.finder AppleShowAllFiles YES
+$ defaults write com.apple.finder AppleShowAllFiles YES
 ```
 
 ### Show path bar in Finder
 
 ```shell
-defaults write com.apple.finder ShowPathbar -bool true
+$ defaults write com.apple.finder ShowPathbar -bool true
 ```
 
 ### Show status bar in Finder
 
 ```shell
-defaults write com.apple.finder ShowStatusBar -bool true
+$ defaults write com.apple.finder ShowStatusBar -bool true
 ```
 
 ## Terminal
@@ -71,7 +73,7 @@ defaults write com.apple.finder ShowStatusBar -bool true
 I use my custom Terminal profile called **Flat**. You can download it by typing:
 
 ```shell
-curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/Flat.terminal
+$ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/Flat.terminal
 ```
 
 To use it as default profile open downloaded `Flat.terminal` file and click **Shell** > **Use settings as default** option.
@@ -104,9 +106,9 @@ In my `.bash_profile` file I create a `brewup` alias to keep Homebrew (which we 
 To download `.bash_profile` and execute its content, use:
 
 ```shell
-cd ~
-curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/.bash_profile
-source ~/.bash_profile
+$ cd ~
+$ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/.bash_profile
+$ source ~/.bash_profile
 ```
 
 ## Homebrew
@@ -116,7 +118,15 @@ source ~/.bash_profile
 ### Installation
 
 ```shell
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+### Usage
+
+To install specific package use ```brew install <package>``` e.g.
+
+```shell
+$ brew install git
 ```
 
 ### Brewfile
@@ -179,19 +189,19 @@ mas "Pages", id: 409201541
 To check App Store application's IDs use:
 
 ```shell
-mas search <app name>
+$ mas search <app name>
 ```
 
 To download my `Brewfile` file type:
 
 ```shell
-curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/Brewfile
+$ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/Brewfile
 ```
 
 To install listed applications use:
 
 ```shell
-brew bundle
+$ brew bundle
 ```
 
 in directory that contains `Brewfile` file.
@@ -201,16 +211,16 @@ in directory that contains `Brewfile` file.
 You can set Git global configuration two ways. The first is to run bunch of commands which will update the Git configuration file, e.g.
 
 ```shell
-git config --global user.name "First Last"
-git config --global user.email "email@email.com"
+$ git config --global user.name "First Last"
+$ git config --global user.email "email@email.com"
 ```
 
 The other and faster way is creating the Git configuration file and input it all ourselves.
 
 ```shell
-cd ~
-curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/.gitconfig
-open .gitconfig
+$ cd ~
+$ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/.gitconfig
+$ open .gitconfig
 ```
 
 ```properties
@@ -232,19 +242,19 @@ Here I set my name, email, GitHub username, core editor and connect Git to the m
 For installation of Node.js I like to use [Node Version Manager](https://github.com/creationix/nvm) (nvm). To download it type:
 
 ```shell
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 ```
 
 You can check all available Node.js versions by:
 
 ```shell
-nvm list-remote
+$ nvm list-remote
 ```
 
 To install specific version type:
 
 ```shell
-nvm install <version>
+$ nvm install <version>
 ```
 
 ## Node Package Manager
@@ -256,7 +266,7 @@ The only thing I use globally at the moment is [Gulp](https://gulpjs.com).
 To install Gulp globally use:
 
 ```shell
-npm install --global gulp-cli
+$ npm install --global gulp-cli
 ```
 
 ## Web Browsers
@@ -279,7 +289,8 @@ For main development I use Google Chrome.
 
 ## Visual Studio Code
 
-All settings changes in Visual Studio Code are stored in `settings.json` file.
+All default settings changes are stored in `settings.json` file. You can open it by pressing `Command ⌘` + `,`.
+Here are my `settings.json` contents: 
 
 ```json
 {
@@ -325,17 +336,17 @@ All settings changes in Visual Studio Code are stored in `settings.json` file.
 You can copy and paste them or just download whole file by:
 
 ```shell
-cd /Users/Your Username/Library/Application Support/Code/User
-curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/settings.json
+$ cd /Users/Your Username/Library/Application Support/Code/User
+$ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/settings.json
 ```
 
 ### Extensions
 
 - [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag) - automatically rename paired HTML tag
-- [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) - debug JavaScript code in the Google Chrome browser
+- [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) - debug JavaScript code running in Google Chrome from VS Code
 - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) - icons based on Material Design
 - [open in browser](https://marketplace.visualstudio.com/items?itemName=techer.open-in-browser) - open any file in specific browser right from VS Code explorer
 - [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense) -  autocomplete filenames
-- [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager) - manage projects right inside Visual Studio Code
-- [SCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-scss) - autocomplete variables, mixins, functions and many other
+- [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager) - manage projects right inside VS Code
+- [SCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-scss) - autocomplete variables, mixins, functions etc.
 - [TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight) - highlight and list TODO, FIXME or any annotations within code
