@@ -1,14 +1,25 @@
 <div align="center">
-  <a href="https://github.com/webpack/webpack">
-    <img src="https://user-images.githubusercontent.com/35331661/37242209-c5d740cc-2465-11e8-92b3-e6d786e98dda.jpg" width="100px">
+  <a href="https://github.com/appalaszynski/mac-setup">
+    <img src="https://user-images.githubusercontent.com/35331661/37242209-c5d740cc-2465-11e8-92b3-e6d786e98dda.jpg" width="125px">
   </a>
   <br>
-  <br>
-  <h1>Front End Web Development Setup for macOS</h1>
+  <h1>Mac Setup</h1>
   <p>
-    <img src="https://img.shields.io/github/stars/appalaszynski/mac-setup.svg" /> 
-    <img src="https://img.shields.io/github/forks/appalaszynski/mac-setup.svg" /> 
-    <img src="https://img.shields.io/github/last-commit/appalaszynski/mac-setup.svg" />
+    <em>Front End Web Development Setup for macOS</em>
+  </p>
+  <p>
+    <a href="https://github.com/appalaszynski/mac-setup/stargazers">
+      <img src="https://img.shields.io/github/stars/appalaszynski/mac-setup.svg" /> 
+    </a>
+    <a href="https://github.com/appalaszynski/mac-setup/network/members">
+      <img src="https://img.shields.io/github/forks/appalaszynski/mac-setup.svg" /> 
+    </a>
+    <a href="https://github.com/appalaszynski/mac-setup">
+      <img src="https://img.shields.io/badge/macOS-10.13.3-blue.svg" /> 
+    </a>
+    <a href="https://github.com/appalaszynski/mac-setup/commits/master">
+      <img src="https://img.shields.io/github/last-commit/appalaszynski/mac-setup.svg" />
+    </a>
   </p>
   <br>
   <br>
@@ -16,7 +27,9 @@
 
 This document describes how I set up front end web development environment on my MacBook Air with macOS High Sierra 10.13.3.
 
-### Table of Contents
+---
+
+## Table of Contents
 
 - [System Preferences](#system-preferences)
 - [Terminal](#terminal)
@@ -27,6 +40,8 @@ This document describes how I set up front end web development environment on my
 - [Node Package Manager](#node-package-manager)
 - [Web Browsers](#web-browsers)
 - [Visual Studio Code](#visual-studio-code)
+
+---
 
 ## System Preferences
 
@@ -80,6 +95,8 @@ $ defaults write com.apple.finder ShowPathbar -bool true
 $ defaults write com.apple.finder ShowStatusBar -bool true
 ```
 
+---
+
 ## Terminal
 
 I use my custom Terminal profile called **Flat**. You can download it by typing:
@@ -89,6 +106,8 @@ $ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/Flat.
 ```
 
 To use it as default profile open downloaded `Flat.terminal` file and click **Shell** > **Use settings as default** option.
+
+---
 
 ## Bash
 
@@ -127,6 +146,8 @@ $ cd ~
 $ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/.bash_profile
 $ source ~/.bash_profile
 ```
+
+---
 
 ## Homebrew
 
@@ -223,6 +244,8 @@ $ brew bundle
 
 in directory that contains `Brewfile` file.
 
+---
+
 ## Git
 
 You can set Git global configuration two ways. The first is to run bunch of commands which will update the Git configuration file, e.g.
@@ -254,6 +277,8 @@ $ open .gitconfig
 
 Here I set my name, email, GitHub username, core editor and connect Git to the macOS Keychain so I don’t have to type my username and password every time I want to push to GitHub.
 
+---
+
 ## Node.js
 
 For installation of Node.js I like to use [Node Version Manager](https://github.com/creationix/nvm) (nvm). To download it type:
@@ -274,6 +299,8 @@ To install specific version type:
 $ nvm install <version>
 ```
 
+---
+
 ## Node Package Manager
 
 Packages which I use globally at the moment are:
@@ -286,6 +313,8 @@ To install them use:
 ```shell
 $ npm install -g gulp-cli webpack npm-upgrade
 ```
+
+---
 
 ## Web Browsers
 
@@ -304,6 +333,8 @@ For main development I use Google Chrome.
 - [JSONView](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc) - validate and view JSON documents
 - [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) - inspect component hierarchies and states
 - [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) - debug state changes
+
+---
 
 ## Visual Studio Code
 
