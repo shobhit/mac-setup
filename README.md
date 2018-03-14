@@ -1,6 +1,18 @@
-<p align="center"><img src="https://user-images.githubusercontent.com/35331661/37242209-c5d740cc-2465-11e8-92b3-e6d786e98dda.jpg" width="100px"></p>
-
-# Front End Web Development Setup for macOS
+<div align="center">
+  <a href="https://github.com/webpack/webpack">
+    <img src="https://user-images.githubusercontent.com/35331661/37242209-c5d740cc-2465-11e8-92b3-e6d786e98dda.jpg" width="100px">
+  </a>
+  <br>
+  <br>
+  <h1>Front End Web Development Setup for macOS</h1>
+  <p>
+    <img src="https://img.shields.io/github/stars/appalaszynski/mac-setup.svg" /> 
+    <img src="https://img.shields.io/github/forks/appalaszynski/mac-setup.svg" /> 
+    <img src="https://img.shields.io/github/last-commit/appalaszynski/mac-setup.svg" />
+  </p>
+  <br>
+  <br>
+</div>
 
 This document describes how I set up front end web development environment on my MacBook Air with macOS High Sierra 10.13.3.
 
@@ -81,12 +93,15 @@ To use it as default profile open downloaded `Flat.terminal` file and click **Sh
 ## Bash
 
 ```shell
+# Aliases
 alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor; brew cask cleanup'
 alias rmhis='rm .bash_history; history -c; logout'
 
+# Colors for `ls` command output
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
+# Colors used in prompt
 RED='\[\033[1;31m\]'
 GREEN='\[\033[1;32m\]'
 YELLOW='\[\033[1;33m\]'
@@ -94,11 +109,13 @@ PURPLE='\[\033[1;35m\]'
 GRAY='\[\033[1;30m\]'
 DEFAULT='\[\033[0m\]'
 
+# Function used in prompt, which displays current Git branch
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-export PS1="${RED}\u ${GRAY}• ${GREEN}\h ${GRAY}• ${YELLOW}\w${GRAY}\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on\")${PURPLE}\$(parse_git_branch)\n${GRAY}\$ ${DEFAULT}"
+# Prompt
+export PS1="${RED}\u ${GRAY}• ${GREEN}\h ${GRAY}• ${YELLOW}\w${GRAY}\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" •\")${PURPLE}\$(parse_git_branch)\n${GRAY}\$ ${DEFAULT}"
 ```
 
 In my `.bash_profile` file I create a `brewup` alias to keep Homebrew (which we are going to install in a second) up to date and `rmhis` to remove bash history. I also set color scheme for `ls` command output and for custom prompt which contains username, computer name, working directory and current Git branch.
@@ -259,14 +276,15 @@ $ nvm install <version>
 
 ## Node Package Manager
 
-The only thing I use globally at the moment is [Gulp](https://gulpjs.com).
+Packages which I use globally at the moment are:
+* [Gulp](https://gulpjs.com)
+* [Webpack](https://webpack.js.org)
+* [npm-upgrade](https://www.npmjs.com/package/npm-upgrade)
 
-### Gulp
-
-To install Gulp globally use:
+To install them use:
 
 ```shell
-$ npm install --global gulp-cli
+$ npm install -g gulp-cli webpack npm-upgrade
 ```
 
 ## Web Browsers
@@ -284,12 +302,12 @@ For main development I use Google Chrome.
 
 - [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm) - block ads
 - [JSONView](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc) - validate and view JSON documents
-- [React developer tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) - inspect component hierarchies and states
+- [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) - inspect component hierarchies and states
 - [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) - debug state changes
 
 ## Visual Studio Code
 
-All default settings changes are stored in `settings.json` file. You can open it by pressing `Command ⌘` + `,`.
+All default settings changes are stored in `settings.json` file. You can open it by pressing `Command ⌘` + `,` going to Code > Preferences > Settings.
 Here are my `settings.json` contents: 
 
 ```json
@@ -304,6 +322,7 @@ Here are my `settings.json` contents:
   "editor.minimap.enabled": false,
   "editor.hideCursorInOverviewRuler": true,
   "editor.formatOnPaste": true,
+  "problems.decorations.enabled": false,
   "explorer.openEditors.visible": 0,
   "files.insertFinalNewline": true,
   "html.autoClosingTags": false,
