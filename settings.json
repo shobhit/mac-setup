@@ -3,14 +3,16 @@
   "workbench.colorTheme": "Monokai",
   "workbench.activityBar.visible": false,
   "workbench.iconTheme": "material-icon-theme",
+  "workbench.statusBar.feedback.visible": false,
   "editor.fontSize": 12,
   "editor.tabSize": 2,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.minimap.enabled": false,
-  "editor.hideCursorInOverviewRuler": true,
   "editor.formatOnPaste": true,
+  "editor.detectIndentation": false,
   "problems.decorations.enabled": false,
   "explorer.openEditors.visible": 0,
+  "explorer.decorations.colors": false,
   "files.insertFinalNewline": true,
   "html.autoClosingTags": false,
   "files.exclude": {
@@ -18,6 +20,9 @@
     "**/.vscode/": true,
   },
   "material-icon-theme.folders.theme": "none",
+  "material-icon-theme.hidesExplorerArrows": true,
+  "html-css-class-completion.enableEmmetSupport": true,
+  "eslint.autoFixOnSave": true,
   "todohighlight.isEnable": true,
   "todohighlight.keywords": [
     {
@@ -35,5 +40,5 @@
   ],
   "todohighlight.exclude": [
     "**/public/"
-  ]
+  ],
 }

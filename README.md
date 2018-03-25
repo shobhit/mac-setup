@@ -128,7 +128,7 @@ PURPLE='\[\033[1;35m\]'
 GRAY='\[\033[1;30m\]'
 DEFAULT='\[\033[0m\]'
 
-# Function used in prompt, which displays current Git branch
+# Function used in prompt, displaying current Git branch
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
@@ -174,26 +174,29 @@ Installing each package separately may take some time. That's why I use [Homebre
 Here are all the programs I install with a brief description.
 
 - [Cask](https://caskroom.github.io) - an extension to Homebrew which allows to install almost any program that exists for a Mac
-- [Git](https://git-scm.com) - for version control
+- [Git](https://git-scm.com) - version control system
 - [mas-cli](https://github.com/mas-cli/mas) - Mac App Store command line interface
-- [AppCleaner](https://freemacsoft.net/appcleaner/) - uninstall apps
+- [AppCleaner](https://freemacsoft.net/appcleaner/) - apps uninstaller
 - [Filezilla](https://filezilla-project.org) - FTP client
 - [Firefox](https://www.mozilla.org/firefox/new/) - web browser
-- [Flux](https://justgetflux.com) - better Night Shift
+- [Flux](https://justgetflux.com) - screen color temperature adjusting app
+- [Fork](https://git-fork.com) - Git GUI client
 - [Google Chrome](https://www.google.pl/chrome/browser/desktop/index.html) - web browser
-- [KeepingYouAwake](https://github.com/newmarcel/KeepingYouAwake) - prevent Mac from entering sleep mode
+- [KeepingYouAwake](https://github.com/newmarcel/KeepingYouAwake) - app which prevents Mac from entering sleep mode
 - [Keka](http://www.kekaosx.com) - file archiver
 - [MAMP](https://www.mamp.info/en/) - Apache, MySQL and PHP package
 - [Opera](http://www.opera.com) - web browser
-- [Sequel Pro](http://www.sequelpro.com) - GUI for MySQL databases
+- [Postman](https://www.getpostman.com) - API testing tool
+- [Sequel Pro](http://www.sequelpro.com) - MySQL GUI tool
 - [Skype](https://www.skype.com) - voice and video chat
-- [Spectacle](https://www.spectacleapp.com) - easily move and resize windows
+- [Slack](https://slack.com) - team collaboration tools
+- [Spectacle](https://www.spectacleapp.com) - window manager
 - [Transmission](https://transmissionbt.com) - BitTorrent client
 - [Visual Studio Code](https://code.visualstudio.com) - code editor
 - [VLC](https://www.videolan.org/vlc/) - media player
 - [iMovie](https://www.apple.com/imovie/) - video editor
 - [Pages](https://www.apple.com/pages/) - text editor
-- [Numbers](https://www.apple.com/numbers/) - spreadsheet
+- [Numbers](https://www.apple.com/numbers/) - spreadsheet editor
 
 Below are the entire contents of my `Brewfile`, which will install all the above programs with a single command.
 
@@ -207,13 +210,16 @@ cask 'appcleaner'
 cask 'filezilla'
 cask 'firefox'
 cask 'flux'
+cask 'fork'
 cask 'google-chrome'
 cask 'keepingyouawake'
 cask 'keka'
 cask 'mamp'
 cask 'opera'
+cask 'postman'
 cask 'sequel-pro'
 cask 'skype'
+cask 'slack'
 cask 'spectacle'
 cask 'transmission'
 cask 'visual-studio-code'
@@ -347,14 +353,16 @@ Here are my `settings.json` contents:
   "workbench.colorTheme": "Monokai",
   "workbench.activityBar.visible": false,
   "workbench.iconTheme": "material-icon-theme",
+  "workbench.statusBar.feedback.visible": false,
   "editor.fontSize": 12,
   "editor.tabSize": 2,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.minimap.enabled": false,
-  "editor.hideCursorInOverviewRuler": true,
   "editor.formatOnPaste": true,
+  "editor.detectIndentation": false,
   "problems.decorations.enabled": false,
   "explorer.openEditors.visible": 0,
+  "explorer.decorations.colors": false,
   "files.insertFinalNewline": true,
   "html.autoClosingTags": false,
   "files.exclude": {
@@ -362,6 +370,9 @@ Here are my `settings.json` contents:
     "**/.vscode/": true,
   },
   "material-icon-theme.folders.theme": "none",
+  "material-icon-theme.hidesExplorerArrows": true,
+  "html-css-class-completion.enableEmmetSupport": true,
+  "eslint.autoFixOnSave": true,
   "todohighlight.isEnable": true,
   "todohighlight.keywords": [
     {
@@ -379,7 +390,7 @@ Here are my `settings.json` contents:
   ],
   "todohighlight.exclude": [
     "**/public/"
-  ]
+  ],
 }
 ```
 
@@ -394,9 +405,12 @@ $ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/setti
 
 - [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag) - automatically rename paired HTML tag
 - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) - debug JavaScript code running in Google Chrome from VS Code
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - integrate ESLint into VS Code
+- [IntelliSense for CSS class names in HTML](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion) - autocomplete HTML class attributes
 - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) - icons based on Material Design
-- [open in browser](https://marketplace.visualstudio.com/items?itemName=techer.open-in-browser) - open any file in specific browser right from VS Code explorer
+- [open in browser](https://marketplace.visualstudio.com/items?itemName=techer.open-in-browser) - open any file in browser right from VS Code explorer
 - [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense) -  autocomplete filenames
 - [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager) - manage projects right inside VS Code
+- [Reactjs code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets) - code snippets for React development
 - [SCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-scss) - autocomplete variables, mixins, functions etc.
 - [TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight) - highlight and list TODO, FIXME or any annotations within code
