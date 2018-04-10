@@ -15,7 +15,7 @@
       <img src="https://img.shields.io/github/forks/appalaszynski/mac-setup.svg" /> 
     </a>
     <a href="https://github.com/appalaszynski/mac-setup">
-      <img src="https://img.shields.io/badge/macOS-10.13.3-blue.svg" /> 
+      <img src="https://img.shields.io/badge/macOS-10.13.4-blue.svg" /> 
     </a>
     <a href="https://github.com/appalaszynski/mac-setup/commits/master">
       <img src="https://img.shields.io/github/last-commit/appalaszynski/mac-setup.svg" />
@@ -25,7 +25,7 @@
   <br>
 </div>
 
-This document describes how I set up front end web development environment on my MacBook Air with macOS High Sierra 10.13.3.
+This document describes how I set up front end web development environment on my MacBook Air with macOS High Sierra 10.13.4.
 
 ---
 
@@ -115,6 +115,11 @@ To use it as default profile open downloaded `Flat.terminal` file and click **Sh
 # Aliases
 alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor; brew cask cleanup'
 alias rmhis='rm .bash_history; history -c; logout'
+alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor; brew cask cleanup'
+alias rmhis='rm .bash_history; history -c; logout'
+alias ..="cd .."
+alias p="cd ~/Projects"
+alias d="cd ~/Desktp"
 
 # Colors for `ls` command output
 export CLICOLOR=1
@@ -137,7 +142,7 @@ parse_git_branch() {
 export PS1="${RED}\u ${GRAY}• ${GREEN}\h ${GRAY}• ${YELLOW}\w${GRAY}\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" •\")${PURPLE}\$(parse_git_branch)\n${GRAY}\$ ${DEFAULT}"
 ```
 
-In my `.bash_profile` file I create a `brewup` alias to keep Homebrew (which we are going to install in a second) up to date and `rmhis` to remove bash history. I also set color scheme for `ls` command output and for custom prompt which contains username, computer name, working directory and current Git branch.
+In my `.bash_profile` file I create, among others, a `brewup` alias to keep Homebrew (which we are going to install in a second) up to date and `rmhis` to remove bash history. I also set color scheme for `ls` command output and for custom prompt which contains username, computer name, working directory and current Git branch.
 
 To download `.bash_profile` and execute its content, use:
 
@@ -371,7 +376,6 @@ Here are my `settings.json` contents:
   },
   "material-icon-theme.folders.theme": "none",
   "material-icon-theme.hidesExplorerArrows": true,
-  "html-css-class-completion.enableEmmetSupport": true,
   "eslint.autoFixOnSave": true,
   "todohighlight.isEnable": true,
   "todohighlight.keywords": [
@@ -391,6 +395,12 @@ Here are my `settings.json` contents:
   "todohighlight.exclude": [
     "**/public/"
   ],
+  "auto-rename-tag.activationOnLanguage": [
+    "html",
+    "xml",
+    "javascript",
+    "javascriptreact"
+  ]
 }
 ```
 
@@ -406,7 +416,6 @@ $ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/setti
 - [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag) - automatically rename paired HTML tag
 - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) - debug JavaScript code running in Google Chrome from VS Code
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - integrate ESLint into VS Code
-- [IntelliSense for CSS class names in HTML](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion) - autocomplete HTML class attributes
 - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) - icons based on Material Design
 - [open in browser](https://marketplace.visualstudio.com/items?itemName=techer.open-in-browser) - open any file in browser right from VS Code explorer
 - [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense) -  autocomplete filenames

@@ -21,7 +21,6 @@
   },
   "material-icon-theme.folders.theme": "none",
   "material-icon-theme.hidesExplorerArrows": true,
-  "html-css-class-completion.enableEmmetSupport": true,
   "eslint.autoFixOnSave": true,
   "todohighlight.isEnable": true,
   "todohighlight.keywords": [
@@ -41,4 +40,10 @@
   "todohighlight.exclude": [
     "**/public/"
   ],
+  "auto-rename-tag.activationOnLanguage": [
+    "html",
+    "xml",
+    "javascript",
+    "javascriptreact"
+  ]
 }
