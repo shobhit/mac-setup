@@ -117,7 +117,7 @@ alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor; 
 alias rmhis='rm .bash_history; history -c; logout'
 alias ..="cd .."
 alias p="cd ~/Projects"
-alias d="cd ~/Desktp"
+alias d="cd ~/Desktop"
 
 # Colors for `ls` command output
 export CLICOLOR=1
