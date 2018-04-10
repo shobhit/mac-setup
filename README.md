@@ -115,8 +115,6 @@ To use it as default profile open downloaded `Flat.terminal` file and click **Sh
 # Aliases
 alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor; brew cask cleanup'
 alias rmhis='rm .bash_history; history -c; logout'
-alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor; brew cask cleanup'
-alias rmhis='rm .bash_history; history -c; logout'
 alias ..="cd .."
 alias p="cd ~/Projects"
 alias d="cd ~/Desktp"
