@@ -398,7 +398,14 @@ Here are my `settings.json` contents:
     "xml",
     "javascript",
     "javascriptreact"
-  ]
+  ],
+  "bracketPairColorizer.activeScopeCSS": [
+    "borderStyle : solid",
+    "borderWidth : 1px",
+    "borderColor : {color}; opacity: 0.5",
+    "backgroundColor : {color}"
+  ],
+  "bracketPairColorizer.highlightActiveScope": true,
 }
 ```
 
@@ -412,6 +419,7 @@ $ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/setti
 ### Extensions
 
 - [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag) - automatically rename paired HTML tag
+- [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer) - match brackets to be identified with colours
 - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) - debug JavaScript code running in Google Chrome from VS Code
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - integrate ESLint into VS Code
 - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) - icons based on Material Design

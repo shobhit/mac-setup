@@ -45,5 +45,12 @@
     "xml",
     "javascript",
     "javascriptreact"
-  ]
+  ],
+  "bracketPairColorizer.activeScopeCSS": [
+    "borderStyle : solid",
+    "borderWidth : 1px",
+    "borderColor : {color}; opacity: 0.5",
+    "backgroundColor : {color}"
+  ],
+  "bracketPairColorizer.highlightActiveScope": true,
 }
