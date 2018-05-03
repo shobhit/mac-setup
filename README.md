@@ -31,6 +31,7 @@ This document describes how I set up front end web development environment on my
 
 ## Table of Contents
 
+- [Installation](#installation)
 - [System Preferences](#system-preferences)
 - [Terminal](#terminal)
 - [Bash](#bash)
@@ -40,6 +41,24 @@ This document describes how I set up front end web development environment on my
 - [Node Package Manager](#node-package-manager)
 - [Web Browsers](#web-browsers)
 - [Visual Studio Code](#visual-studio-code)
+
+---
+
+## Installation
+
+You can follow the instructions below or use shell script to configure settings automatically.
+How to automatically configure Mac? There are two options:
+
+- clone/download the repository into your computer and then execute ```mac-setup.sh``` script,
+- one line installation - open your terminal and paste the following code:
+ 
+```shell
+$ curl -L https://github.com/appalaszynski/mac-setup/archive/master.tar.gz | tar -xvz; cd mac-setup-master; chmod +x mac-setup.sh; ./mac-setup.sh
+```
+
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/35331661/39597491-db1ea3fa-4f15-11e8-8a6a-4b6dc2762cc8.gif">
+</div>
 
 ---
 
@@ -102,6 +121,8 @@ Setting a firmware password prevents your Mac from starting up from any device o
 ```shell
 $ firmwarepasswd -setpasswd -setmode command
 ```
+
+You can find a lot more settings in [defaults.sh](https://github.com/appalaszynski/mac-setup/blob/master/api/defaults.sh).
 
 ---
 
@@ -193,6 +214,7 @@ Here are all the programs I install with a brief description.
 - [Flux](https://justgetflux.com) - screen color temperature adjusting app
 - [Fork](https://git-fork.com) - Git GUI client
 - [Google Chrome](https://www.google.pl/chrome/browser/desktop/index.html) - web browser
+- [Kap](https://getkap.co/) - screen recorder
 - [KeepingYouAwake](https://github.com/newmarcel/KeepingYouAwake) - app which prevents Mac from entering sleep mode
 - [Keka](http://www.kekaosx.com) - file archiver
 - [MAMP](https://www.mamp.info/en/) - Apache, MySQL and PHP package
@@ -203,6 +225,7 @@ Here are all the programs I install with a brief description.
 - [Slack](https://slack.com) - team collaboration tools
 - [Spectacle](https://www.spectacleapp.com) - window manager
 - [Transmission](https://transmissionbt.com) - BitTorrent client
+- [Tunnelblick](https://tunnelblick.net/) - GUI for OpenVPN
 - [Visual Studio Code](https://code.visualstudio.com) - code editor
 - [VLC](https://www.videolan.org/vlc/) - media player
 - [iMovie](https://www.apple.com/imovie/) - video editor
@@ -223,6 +246,7 @@ cask 'firefox'
 cask 'flux'
 cask 'fork'
 cask 'google-chrome'
+cask 'kap'
 cask 'keepingyouawake'
 cask 'keka'
 cask 'mamp'
@@ -233,6 +257,7 @@ cask 'skype'
 cask 'slack'
 cask 'spectacle'
 cask 'transmission'
+cask 'tunnelblick'
 cask 'visual-studio-code'
 cask 'vlc'
 
