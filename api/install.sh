@@ -1,11 +1,11 @@
-clear #Clear terminal screen
+clear
 
-ARROW=$(tput setaf 6; echo -n '=>'; tput sgr0;)
+ARROW=$(tput bold)$(tput setaf 6; echo -n '==>'; tput sgr0;)
 
 echo "Welcome to the installer!"
 echo -e "First, introduce your password to execute all the commands as super user. \n"
-echo -e "\033[0;31mNote:\033[0m You can be asked more times for password during the process. Also, during"
-echo "instalation of some applications You may be required to log in to Mac App Store."
+echo -e "\033[1;31mImportant:\033[0m You can be asked more times for password during the process."
+echo "Also, make sure that You are logged in to the Mac App Store."
 echo
 
 sudo -v
@@ -20,7 +20,7 @@ install_homebrew() {
 }
 
 update_homebrew() {
-  brew update # Make sure we’re using the latest Homebrew.
+  brew update
   brew upgrade
 }
 
@@ -40,6 +40,7 @@ install_bundle() {
     flux
     fork
     google-chrome
+    kap
     keepingyouawake
     keka
     mamp
@@ -50,6 +51,7 @@ install_bundle() {
     slack
     spectacle
     transmission
+    tunnelblick
     visual-studio-code
     vlc
   )
@@ -100,6 +102,16 @@ read -p "${ARROW} Install bundle of applications? [y/n]: "
 if [ "$REPLY" == "y" ]; then
   echo "${ARROW} Installing applications..."
   install_bundle
+  echo "${ARROW} Installing applications..."
+  open /Applications/Flux.app
+  open /Applications/Spectacle.app
+fi
+
+read -p "${ARROW} Configure Terminal profile? [y/n]: "
+
+if [ "$REPLY" == "y" ]; then
+  echo -e "\033[1;33mNote:\033[0m New Terminal window opened. Click 'Shell' > 'Use settings as default' to use it as default profile."
+  open ./Flat.terminal
 fi
 
 read -p "${ARROW} Install nvm (Node Version Manager)? [y/n]: "
@@ -145,11 +157,21 @@ if [ "$REPLY" == "y" ]; then
   cp .gitconfig ~
 fi
 
-read -p "${ARROW} Configure Spectacle app? [y/n]: "
+read -p "${ARROW} Configure Spectacle shotrcuts? [y/n]: "
 
 if [ "$REPLY" == "y" ]; then
-  echo "${ARROW} Configuring Spectacle..."
+  echo "${ARROW} Configuring Spectacle shotrcuts..."
   cp -r spectacle.json ~/Library/Application\ Support/Spectacle/Shortcuts.json 2> /dev/null
+fi
+
+read -p "${ARROW} Set up firmware password? [y/n]: "
+
+if [ "$REPLY" == "y" ]; then
+  if [[ $(sudo firmwarepasswd -check) =~ "Password Enabled: Yes" ]]; then
+    echo "Firmware password is already set up!"
+  else
+    sudo firmwarepasswd -setpasswd -setmode command
+  fi
 fi
 
 read -p "${ARROW} Configure macOS Defaults? [y/n]: "
@@ -159,6 +181,6 @@ if [ "$REPLY" == "y" ]; then
   . ./api/defaults.sh
 fi
 
-echo -e "\033[0;32m\nCongratulations, installation complete!\033[0m"
+echo -e "\033[1;33m\nNote:\033[0m Some changes may need system restart to be applied!\n\033[1;32m\nCongratulations, installation complete!\033[0m"
 
 exit 1
