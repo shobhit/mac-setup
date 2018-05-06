@@ -106,7 +106,7 @@ defaults write com.apple.dock showLaunchpadGestureEnabled -int 1
 defaults write com.apple.dock showAppExposeGestureEnabled -int 1
 
 #################################
-#### Keyboard
+#### KEYBOARD
 #################################
 
 # Disable press-and-hold for keys in favor of key repeat
@@ -136,7 +136,7 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 15
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 #################################
-#### Other
+#### OTHER
 #################################
 
 # Disable transparency
