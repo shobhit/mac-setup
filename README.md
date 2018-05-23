@@ -47,7 +47,7 @@ This document describes how I set up front end web development environment on my
 ## Installation
 
 You can follow the instructions below or use shell script to configure settings automatically.
-How to automatically configure Mac? There are two options:
+There are two ways to do it:
 
 - clone/download the repository into your computer and then execute ```mac-setup.sh``` script,
 - one line installation - open your terminal and paste the following code:
@@ -57,7 +57,7 @@ $ curl -L https://github.com/appalaszynski/mac-setup/archive/master.tar.gz | tar
 ```
 
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/35331661/39597491-db1ea3fa-4f15-11e8-8a6a-4b6dc2762cc8.gif">
+  <img src="https://user-images.githubusercontent.com/35331661/40432542-3d8a4370-5eaa-11e8-88ea-b9974ae13e82.png">
 </div>
 
 ---
@@ -141,18 +141,30 @@ To use it as default profile open downloaded `Flat.terminal` file and click **Sh
 ## Bash
 
 ```shell
-# Aliases
+# Update Homebrew itself, upgrade all packages, remove dead symlinks, remove old versions
+# of installed formulas, clean old downloads from cache, remove versions of formulas, which
+# are downloaded, but not installed, check system for potential problems, remove cached
+# Homebrew-Cask downloads
 alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor; brew cask cleanup'
+
+# Remove bash history and exit bash shell
 alias rmhis='rm .bash_history; history -c; logout'
+
+# Easier navigation
 alias ..="cd .."
+alias ....="cd ../.."
+
+# Shortcuts
 alias p="cd ~/Projects"
 alias d="cd ~/Desktop"
 
-# Colors for `ls` command output
+# Enable ANSI colors sequences to distinguish file types
 export CLICOLOR=1
+
+# Value of this variable describes what color to use for which attribute
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
-# Colors used in prompt
+# Color definitions
 RED='\[\033[1;31m\]'
 GREEN='\[\033[1;32m\]'
 YELLOW='\[\033[1;33m\]'
@@ -160,16 +172,27 @@ PURPLE='\[\033[1;35m\]'
 GRAY='\[\033[1;30m\]'
 DEFAULT='\[\033[0m\]'
 
-# Function used in prompt, displaying current Git branch
+# Function which current Git branch name from 'git branch' command
 parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-# Prompt
-export PS1="${RED}\u ${GRAY}• ${GREEN}\h ${GRAY}• ${YELLOW}\w${GRAY}\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" •\")${PURPLE}\$(parse_git_branch)\n${GRAY}\$ ${DEFAULT}"
+# Set up prompt
+PS1="${RED}\u" # Username
+PS1+=" ${GRAY}• " # Separator
+PS1+="${GREEN}\h" # Hostname
+PS1+=" ${GRAY}• " # Seprataor
+PS1+="${YELLOW}\w" # Working directory
+PS1+=" ${GRAY}\$([[ -n \$(git branch 2> /dev/null) ]] && echo \"•\") " # Separator
+PS1+="${PURPLE}\$(parse_git_branch)" # Git branch
+PS1+="\n" # New line
+PS1+="${GRAY}\$ " # Dollar sign
+PS1+="${DEFAULT}" # Get back default color
+
+export PS1;
 ```
 
-In my `.bash_profile` file I create, among others, a `brewup` alias to keep Homebrew (which we are going to install in a second) up to date and `rmhis` to remove bash history. I also set color scheme for `ls` command output and for custom prompt which contains username, computer name, working directory and current Git branch.
+In my `.bash_profile` file I create, among others, a `brewup` alias to keep Homebrew (which we are going to install in a second) up to date. I also set color scheme for `ls` command output and for custom prompt which contains username, computer name, working directory and current Git branch.
 
 To download `.bash_profile` and execute its content, use:
 
@@ -278,13 +301,13 @@ To download my `Brewfile` file type:
 $ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/Brewfile
 ```
 
-To install listed applications use:
+To install applications listed in `Brewfile` use:
 
 ```shell
 $ brew bundle
 ```
 
-in directory that contains `Brewfile` file.
+in directory that contains `Brewfile`.
 
 ---
 
@@ -374,6 +397,7 @@ For main development I use Google Chrome.
 - [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm) - block ads
 - [Privacy Badger](https://chrome.google.com/webstore/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp) - block spying ads and invisible trackers
 - [Nano Defender](https://chrome.google.com/webstore/detail/nano-defender/ggolfgbegefeeoocgjbmkembbncoadlb) - anti-adblock defuser
+- [HTTPS Everywhere](https://chrome.google.com/webstore/detail/https-everywhere/gcbommkclmclpchllfjekcdonpmejbdp?hl=pl) - automatically switch from "http" to "https"
 - [JSONView](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc) - validate and view JSON documents
 - [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) - inspect component hierarchies and states
 - [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) - debug state changes
