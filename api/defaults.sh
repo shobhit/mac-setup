@@ -11,10 +11,6 @@ defaults write com.apple.finder ShowPathbar -bool true
 # When performing a search, search the current folder by default
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
-# Always open everything in Finder's columns view.
-# Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`, 'Nlsv'
-defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
-
 # Keep folders on top when sorting by name
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
@@ -123,6 +119,7 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write NSGlobalDomain WebAutomaticSpellingCorrectionEnabled -int 0
 
 # Disable automatic capitalization
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
@@ -152,9 +149,6 @@ defaults write com.apple.TextEdit CheckSpellingWhileTyping -int 0
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 
-# Save to disk (not to iCloud) by default
-defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
-
 # Enable Dark Mode
 defaults write NSGlobalDomain AppleInterfaceStyle Dark
 
@@ -175,44 +169,32 @@ defaults write NSGlobalDomain com.apple.sound.beep.sound -string "/System/Librar
 
 defaults write NSGlobalDomain WebAutomaticSpellingCorrectionEnabled -int 0
 
-# Show fast user switching menu as: icon
-# TODO: first enable switching user
-defaults write NSGlobalDomain userMenuExtraStyle -int 2
-
 # Set up date format in menubar
 defaults write "com.apple.menuextra.clock" DateFormat -string "EEE d.MM  HH:mm"
 defaults write "com.apple.systemuiserver" DateFormat -string "EEE d.MM  HH:mm"
 
 # Enable snap-to-grid for icons on the desktop and in other icon views
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-# /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
 # Decrease grid spacing for icons on the desktop and in other icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 20" ~/Library/Preferences/com.apple.finder.plist
-# /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:gridSpacing 20" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 20" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 15" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 15" ~/Library/Preferences/com.apple.finder.plist
 
 # Decrease the size of icons on the desktop and in other icon views
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 44" ~/Library/Preferences/com.apple.finder.plist
-# /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:iconSize 44" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 44" ~/Library/Preferences/com.apple.finder.plist
 
 # Disable icons preview on the desktop and in other icon views
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showIconPreview 0" ~/Library/Preferences/com.apple.finder.plist
-# /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:showIconPreview 0" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showIconPreview 0" ~/Library/Preferences/com.apple.finder.plist
 
 # Set order of menu bar icons
 defaults write "com.apple.systemuiserver" "NSStatusItem Preferred Position com.apple.menuextra.bluetooth" -int 489
 defaults write "com.apple.systemuiserver" "NSStatusItem Preferred Position com.apple.menuextra.airport" -int 435
-defaults write "org.herf.Flux" "NSStatusItem Preferred Position Item-0" -float 408.5
-defaults write "com.divisiblebyzero.Spectacle" "NSStatusItem Preferred Position Item-0" -int 383
-defaults write "info.marcel-dierkes.KeepingYouAwake" "NSStatusItem Preferred Position Item-0" -int 354
 defaults write "com.apple.systemuiserver" "NSStatusItem Preferred Position com.apple.menuextra.volume" -int 324
 defaults write "com.apple.systemuiserver" "NSStatusItem Preferred Position com.apple.menuextra.battery" -int 273 
 defaults write "com.apple.systemuiserver" "NSStatusItem Preferred Position com.apple.menuextra.clock" -int 179
-defaults write "com.apple.systemuiserver" "NSStatusItem Preferred Position com.apple.menuextra.appleuser" -string "101.5"
 defaults write "com.apple.systemuiserver" "NSStatusItem Visible Siri" -int 0
 defaults write "com.apple.systemuiserver" "NSStatusItem Visible com.apple.menuextra.airport" -int 1
 defaults write "com.apple.systemuiserver" "NSStatusItem Visible com.apple.menuextra.appleuser" -int 1
@@ -220,15 +202,10 @@ defaults write "com.apple.systemuiserver" "NSStatusItem Visible com.apple.menuex
 defaults write "com.apple.systemuiserver" "NSStatusItem Visible com.apple.menuextra.bluetooth" -int 1
 defaults write "com.apple.systemuiserver" "NSStatusItem Visible com.apple.menuextra.clock" -int 1
 defaults write "com.apple.systemuiserver" "NSStatusItem Visible com.apple.menuextra.volume" -int 1
-defaults write "com.apple.systemuiserver" menuExtras -array "/System/Library/CoreServices/Menu Extras/Clock.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/User.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Volume.menu" "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
+defaults write "com.apple.systemuiserver" menuExtras -array "/System/Library/CoreServices/Menu Extras/Clock.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Volume.menu" "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
 
 # Disable the sound effects on boot
-sudo nvram SystemAudioVolume=" "
-
-# Set computer name
-sudo scutil --set ComputerName "mba"
-sudo scutil --set HostName "mba"
-sudo scutil --set LocalHostName "mba"
+sudo nvram SystemAudioVolume=0
 
 applications_to_kill=(
   "Activity Monitor"
