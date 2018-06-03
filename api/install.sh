@@ -168,11 +168,11 @@ if $IS_NODE_INSTALLED; then
   echo "${ARROW} Node.js already installed!"
 else
   if [ $IS_NVM_INSTALLED == true ]; then
-    read -p "${ARROW} Install Node.js v9.10.0? [y/n]: "
+    read -p "${ARROW} Install latest LTS version of Node.js? [y/n]: "
 
     if [ "$REPLY" == "y" ]; then
-      echo "${ARROW} Installing Node.js v9.10.0..."
-      nvm install 9.10.0
+      echo "${ARROW} Installing Node.js..."
+      nvm install --lts
 
       IS_NODE_INSTALLED=true
     fi
