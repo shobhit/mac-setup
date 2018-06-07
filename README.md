@@ -15,7 +15,7 @@
       <img src="https://img.shields.io/github/forks/appalaszynski/mac-setup.svg" /> 
     </a>
     <a href="https://github.com/appalaszynski/mac-setup">
-      <img src="https://img.shields.io/badge/macOS-10.13.4-blue.svg" /> 
+      <img src="https://img.shields.io/badge/macOS-10.13.5-blue.svg" /> 
     </a>
     <a href="https://github.com/appalaszynski/mac-setup/commits/master">
       <img src="https://img.shields.io/github/last-commit/appalaszynski/mac-setup.svg" />
@@ -25,7 +25,7 @@
   <br>
 </div>
 
-This document describes how I set up front end web development environment on my MacBook Air with macOS High Sierra 10.13.4.
+This document describes how I set up front end web development environment on my MacBook Air with macOS High Sierra 10.13.5.
 
 ---
 
