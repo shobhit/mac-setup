@@ -204,9 +204,6 @@ defaults write "com.apple.systemuiserver" "NSStatusItem Visible com.apple.menuex
 defaults write "com.apple.systemuiserver" "NSStatusItem Visible com.apple.menuextra.volume" -int 1
 defaults write "com.apple.systemuiserver" menuExtras -array "/System/Library/CoreServices/Menu Extras/Clock.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Volume.menu" "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
 
-# Disable the sound effects on boot
-sudo nvram SystemAudioVolume=0
-
 applications_to_kill=(
   "Activity Monitor"
   "Dock"
