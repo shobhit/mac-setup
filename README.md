@@ -342,6 +342,37 @@ $ open .gitconfig
 
 Here I set my name, email, GitHub username, core editor and connect Git to the macOS Keychain so I don’t have to type my username and password every time I want to push to GitHub.
 
+### SSH
+
+You can also authenticate GiHub using SSH public key. You must generate one if they don’t already have one. To do is use following code:
+
+```shell
+$ ssh-keygen -t rsa -b 4096 -C "your_email_used_in_github@example.com"
+```
+
+but first make sure that htere is a `~/.ssh` directory on your computer.
+
+Above command will create private key (`id_rsa`) and public key (`id_rsa.pub`) in `~/.ssh` directory.
+Next add your newly created SSH key to the ssh-agent to be able to manage your keys.
+
+```shell
+$ ssh-add <path to private key>
+```
+
+Now just login into your Github account and paste content of `id_rsa.pub` file in **Settings** > **SSH and GPG keys** > **New SSH key**.
+
+After you've set up your SSH key and added it to your GitHub account, you can test your connection. Open Terminal and paste following code:
+
+```shell
+$ ssh -T git@github.com
+```
+
+After verifying figerprint by typing `yes` you should see following message:
+
+```shell
+Hi <your username>! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
 ---
 
 ## Node.js
