@@ -64,7 +64,7 @@ $ curl -L https://github.com/appalaszynski/mac-setup/archive/master.tar.gz | tar
 
 ## System Preferences
 
-After clean install of operating system, there are a couple tweaks I like to make to the System Preferences. Some of them are not strictly related to web development enviroment - I use them because of my personal habits.
+After a clean install of operating system, there are a couple tweaks I like to make to the System Preferences. Some of them are not strictly related to web development environment - I use them because of my personal habits.
 
 
 - General > User dark menu bar and Dock
@@ -128,7 +128,7 @@ You can find a lot more settings in [defaults.sh](https://github.com/appalaszyns
 
 ## Terminal
 
-I use my custom Terminal profile called **Flat**. You can download it by typing:
+I use my custom Terminal profile which I called **Flat**. You can download it by typing:
 
 ```shell
 $ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/Flat.terminal
@@ -313,7 +313,7 @@ in directory that contains `Brewfile`.
 
 ## Git
 
-You can set Git global configuration two ways. The first is to run bunch of commands which will update the Git configuration file, e.g.
+You can set Git global configuration two ways. The first is to run a bunch of commands which will update the Git configuration file, e.g.
 
 ```shell
 $ git config --global user.name "First Last"
@@ -350,9 +350,9 @@ You can also authenticate GiHub using SSH public key. You must generate one if t
 $ ssh-keygen -t rsa -b 4096 -C "your_email_used_in_github@example.com"
 ```
 
-but first make sure that htere is a `~/.ssh` directory on your computer.
+but first make sure that there is a `~/.ssh` directory on your computer.
 
-Above command will create private key (`id_rsa`) and public key (`id_rsa.pub`) in `~/.ssh` directory.
+Above command will create a private key (`id_rsa`) and public key (`id_rsa.pub`) in `~/.ssh` directory.
 Next add your newly created SSH key to the ssh-agent to be able to manage your keys.
 
 ```shell
@@ -367,7 +367,7 @@ After you've set up your SSH key and added it to your GitHub account, you can te
 $ ssh -T git@github.com
 ```
 
-After verifying figerprint by typing `yes` you should see following message:
+After verifying figerprint by typing `yes` you should see the following message:
 
 ```shell
 Hi <your username>! You've successfully authenticated, but GitHub does not provide shell access.
