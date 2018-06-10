@@ -29,7 +29,7 @@ PURPLE='\[\033[1;35m\]'
 GRAY='\[\033[1;30m\]'
 DEFAULT='\[\033[0m\]'
 
-# Function which current Git branch name from 'git branch' command
+# Function which prints current Git branch name
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
