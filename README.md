@@ -516,6 +516,7 @@ $ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/setti
 - [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer) - match brackets to be identified with colours
 - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) - debug JavaScript code running in Google Chrome from VS Code
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - integrate ESLint into VS Code
+- [JavaScript (ES6) code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets) - code snippets for JavaScript in ES6 syntax
 - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) - icons based on Material Design
 - [open in browser](https://marketplace.visualstudio.com/items?itemName=techer.open-in-browser) - open any file in browser right from VS Code explorer
 - [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense) -  autocomplete filenames
@@ -527,5 +528,5 @@ $ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/setti
 To install all extensions by one command use:
 
 ```shell
-$ code --install-extension CoenraadS.bracket-pair-colorizer --install-extension PKief.material-icon-theme --install-extension alefragnani.project-manager --install-extension christian-kohler.path-intellisense --install-extension dbaeumer.vscode-eslint --install-extension formulahendry.auto-rename-tag --install-extension mrmlnc.vscode-scss --install-extension msjsdiag.debugger-for-chrome --install-extension techer.open-in-browser --install-extension wayou.vscode-todo-highlight --install-extension xabikos.ReactSnippets
+$ code --install-extension CoenraadS.bracket-pair-colorizer --install-extension PKief.material-icon-theme --install-extension alefragnani.project-manager --install-extension christian-kohler.path-intellisense --install-extension dbaeumer.vscode-eslint --install-extension formulahendry.auto-rename-tag --install-extension mrmlnc.vscode-scss --install-extension msjsdiag.debugger-for-chrome --install-extension techer.open-in-browser --install-extension wayou.vscode-todo-highlight --install-extension xabikos.ReactSnippets --install-extension xabikos.JavaScriptSnippets
 ```
