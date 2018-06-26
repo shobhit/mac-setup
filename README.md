@@ -463,8 +463,10 @@ Here are my `settings.json` contents:
     "**/node_modules/": true,
     "**/.vscode/": true,
   },
-  "material-icon-theme.folders.theme": "none",
+  "material-icon-theme.folders.theme": "classic",
   "material-icon-theme.hidesExplorerArrows": true,
+  "material-icon-theme.folders.color": "#90a4ae",
+  "material-icon-theme.opacity": 0.8,
   "eslint.autoFixOnSave": true,
   "todohighlight.isEnable": true,
   "todohighlight.keywords": [
@@ -497,6 +499,7 @@ Here are my `settings.json` contents:
     "backgroundColor : {color}"
   ],
   "bracketPairColorizer.highlightActiveScope": true,
+  "debug.allowBreakpointsEverywhere": true,
 }
 ```
 
