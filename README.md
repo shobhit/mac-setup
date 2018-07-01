@@ -185,7 +185,7 @@ parse_git_branch() {
 PS1="${RED}\u" # Username
 PS1+=" ${GRAY}• " # Separator
 PS1+="${GREEN}\h" # Hostname
-PS1+=" ${GRAY}• " # Seprataor
+PS1+=" ${GRAY}• " # Separator
 PS1+="${YELLOW}\w" # Working directory
 PS1+=" ${GRAY}\$([[ -n \$(git branch 2> /dev/null) ]] && echo \"•\") " # Separator
 PS1+="${PURPLE}\$(parse_git_branch)" # Git branch
@@ -378,7 +378,7 @@ After you've set up your SSH key and added it to your GitHub account, you can te
 $ ssh -T git@github.com
 ```
 
-After verifying figerprint by typing `yes` you should see the following message:
+After verifying fingerprint by typing `yes` you should see the following message:
 
 ```shell
 Hi <your username>! You've successfully authenticated, but GitHub does not provide shell access.
