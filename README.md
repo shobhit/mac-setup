@@ -76,11 +76,15 @@ After a clean install of operating system, there are a couple tweaks I like to m
 
 ### Set Dock size
 
+In my opinion, the best size of the dock is 35. Remember that this is due to the size and resolution of the screen.
+
 ```shell
 $ defaults write com.apple.dock tilesize -int 35; killall Dock
 ```
 
 ### Disable "Press and hold"
+
+"Press and Hold" function is used to create accents or diacritical marks. I don't need it, so I turn it off. You can always turn it on back by changing `false` to `true`.
 
 ```shell
 $ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
@@ -192,7 +196,8 @@ PS1+="${DEFAULT}" # Get back default color
 export PS1;
 ```
 
-In my `.bash_profile` file I create, among others, a `brewup` alias to keep Homebrew (which we are going to install in a second) up to date. I also set color scheme for `ls` command output and for custom prompt which contains username, computer name, working directory and current Git branch.
+When bash is invoked it looks for `~/.bash_profile`, reads it and executes commands from it.
+In my `.bash_profile` file I create, among others, a `brewup` alias (keyboard shortcut to avoiding typing a long command sequence) to keep Homebrew (which we are going to install in a second) up to date. I also set color scheme for `ls` command output and for custom prompt which contains username, computer name, working directory and current Git branch.
 
 To download `.bash_profile` and execute its content, use:
 
@@ -258,11 +263,14 @@ Here are all the programs I install with a brief description.
 Below are the entire contents of my `Brewfile`, which will install all the above programs with a single command.
 
 ```ruby
+# Install Cask (Homebrew extension).
 tap 'caskroom/cask'
 
-brew 'git'
+# Install Git and mas-cli by Homebrew.
+brew 'git' 
 brew 'mas'
 
+# Install programs by Cask.
 cask 'appcleaner'
 cask 'filezilla'
 cask 'firefox'
@@ -284,6 +292,7 @@ cask 'tunnelblick'
 cask 'visual-studio-code'
 cask 'vlc'
 
+# Install apps from App Store by mas-cli.
 mas "iMovie", id: 408981434
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
@@ -294,6 +303,8 @@ To check App Store application's IDs use:
 ```shell
 $ mas search <app name>
 ```
+
+but, of course, you must first install `mas-cli`.
 
 To download my `Brewfile` file type:
 
@@ -320,7 +331,7 @@ $ git config --global user.name "First Last"
 $ git config --global user.email "email@email.com"
 ```
 
-The other and faster way is creating the Git configuration file and input it all ourselves.
+The other and faster way is creating the Git configuration file (`~/.gitconfig`) and input it all ourselves.
 
 ```shell
 $ cd ~
@@ -400,14 +411,17 @@ $ nvm install <version>
 ## Node Package Manager
 
 Packages which I use globally at the moment are:
-* [Gulp](https://gulpjs.com)
-* [Webpack](https://webpack.js.org)
-* [npm-upgrade](https://www.npmjs.com/package/npm-upgrade)
+* [create-react-app](https://github.com/facebook/create-react-app)
+* [gulp-cli](https://gulpjs.com)
+* [Jest](http://jestjs.io/)
+* [live-server](http://tapiov.net/live-server/)
+* [npm-upgrade](https://github.com/th0r/npm-upgrade)
+* [webpack](https://webpack.js.org)
 
 To install them use:
 
 ```shell
-$ npm install -g gulp-cli webpack npm-upgrade
+$ npm install -g create-react-app gulp-cli jest live-server npm-upgrade webpack
 ```
 
 ---
@@ -438,7 +452,7 @@ For main development I use Google Chrome.
 
 ## Visual Studio Code
 
-All default settings changes are stored in `settings.json` file. You can open it by pressing `Command ⌘` + `,` going to Code > Preferences > Settings.
+All default settings changes are stored in `settings.json` file. You can open it by pressing `Command ⌘` + `,` or by going to Code > Preferences > Settings. `settings.json` file is located in `/Users/Your Username/Library/Application Support/Code/User`.
 Here are my `settings.json` contents: 
 
 ```json
