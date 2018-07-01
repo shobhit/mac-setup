@@ -68,9 +68,12 @@ install_bundle() {
 
 install_npm_packages() {
   npm_packages=(
+    create-react-app
     gulp-cli
-    webpack
+    jest
+    live-server
     npm-upgrade
+    webpack
   )
 
   npm install -g "${npm_packages[@]}"
