@@ -11,9 +11,6 @@
     <a href="https://github.com/appalaszynski/mac-setup/stargazers">
       <img src="https://img.shields.io/github/stars/appalaszynski/mac-setup.svg" /> 
     </a>
-    <a href="https://github.com/appalaszynski/mac-setup/network/members">
-      <img src="https://img.shields.io/github/forks/appalaszynski/mac-setup.svg" /> 
-    </a>
     <a href="https://github.com/appalaszynski/mac-setup">
       <img src="https://img.shields.io/badge/macOS-10.13.5-blue.svg" /> 
     </a>
@@ -237,12 +234,11 @@ Here are all the programs I install with a brief description.
 - [Git](https://git-scm.com) - version control system
 - [mas-cli](https://github.com/mas-cli/mas) - Mac App Store command line interface
 - [AppCleaner](https://freemacsoft.net/appcleaner/) - apps uninstaller
-- [Filezilla](https://filezilla-project.org) - FTP client
+- [Cyberduck](https://cyberduck.io/) - FTP client
 - [Firefox](https://www.mozilla.org/firefox/new/) - web browser
 - [Flux](https://justgetflux.com) - screen color temperature adjusting app
 - [Fork](https://git-fork.com) - Git GUI client
 - [Google Chrome](https://www.google.pl/chrome/browser/desktop/index.html) - web browser
-- [Kap](https://getkap.co/) - screen recorder
 - [KeepingYouAwake](https://github.com/newmarcel/KeepingYouAwake) - app which prevents Mac from entering sleep mode
 - [Keka](http://www.kekaosx.com) - file archiver
 - [MAMP](https://www.mamp.info/en/) - Apache, MySQL and PHP package
@@ -272,12 +268,11 @@ brew 'mas'
 
 # Install programs by Cask.
 cask 'appcleaner'
-cask 'filezilla'
+cask 'cyberduck'
 cask 'firefox'
 cask 'flux'
 cask 'fork'
 cask 'google-chrome'
-cask 'kap'
 cask 'keepingyouawake'
 cask 'keka'
 cask 'mamp'
@@ -364,7 +359,7 @@ $ ssh-keygen -t rsa -b 4096 -C "your_email_used_in_github@example.com"
 but first make sure that there is a `~/.ssh` directory on your computer.
 
 Above command will create a private key (`id_rsa`) and public key (`id_rsa.pub`) in `~/.ssh` directory.
-Next add your newly created SSH key to the ssh-agent to be able to manage your keys.
+Next, add your newly created SSH key to the ssh-agent to be able to manage your keys.
 
 ```shell
 $ ssh-add <path to private key>
@@ -413,7 +408,7 @@ $ nvm install <version>
 Packages which I use globally at the moment are:
 * [create-react-app](https://github.com/facebook/create-react-app)
 * [gulp-cli](https://gulpjs.com)
-* [Jest](http://jestjs.io/)
+* [jest](http://jestjs.io/)
 * [live-server](http://tapiov.net/live-server/)
 * [npm-upgrade](https://github.com/th0r/npm-upgrade)
 * [webpack](https://webpack.js.org)
@@ -462,6 +457,8 @@ Here are my `settings.json` contents:
   "workbench.activityBar.visible": false,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.statusBar.feedback.visible": false,
+  "workbench.list.openMode": "doubleClick",
+  "workbench.tips.enabled": false,
   "editor.fontSize": 12,
   "editor.tabSize": 2,
   "editor.multiCursorModifier": "ctrlCmd",
@@ -472,11 +469,12 @@ Here are my `settings.json` contents:
   "explorer.openEditors.visible": 0,
   "explorer.decorations.colors": false,
   "files.insertFinalNewline": true,
-  "html.autoClosingTags": false,
   "files.exclude": {
     "**/node_modules/": true,
     "**/.vscode/": true,
+    "**/.localized": true,
   },
+  "html.autoClosingTags": false,
   "material-icon-theme.folders.theme": "classic",
   "material-icon-theme.hidesExplorerArrows": true,
   "material-icon-theme.folders.color": "#90a4ae",
@@ -497,9 +495,6 @@ Here are my `settings.json` contents:
       "overviewRulerColor": "red"
     }
   ],
-  "todohighlight.exclude": [
-    "**/public/"
-  ],
   "auto-rename-tag.activationOnLanguage": [
     "html",
     "xml",
@@ -513,7 +508,20 @@ Here are my `settings.json` contents:
     "backgroundColor : {color}"
   ],
   "bracketPairColorizer.highlightActiveScope": true,
-  "debug.allowBreakpointsEverywhere": true,
+  "colorize.activate_variables_support_beta": true,
+  "colorize.languages": [
+    "css",
+    "sass",
+    "scss",
+    "less",
+    "postcss",
+    "sss",
+    "stylus",
+    "xml",
+    "svg",
+    "javascript",
+    "javascriptreact"
+  ],
 }
 ```
 
@@ -528,9 +536,9 @@ $ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/setti
 
 - [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag) - automatically rename paired HTML tag
 - [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer) - match brackets to be identified with colours
+- [colorize](https://marketplace.visualstudio.com/items?itemName=kamikillerto.vscode-colorize) - visualize CSS colors in CSS/Sass/Less/PostCSS/Stylus/XML files (works also with variables)
 - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) - debug JavaScript code running in Google Chrome from VS Code
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - integrate ESLint into VS Code
-- [JavaScript (ES6) code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets) - code snippets for JavaScript in ES6 syntax
 - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) - icons based on Material Design
 - [open in browser](https://marketplace.visualstudio.com/items?itemName=techer.open-in-browser) - open any file in browser right from VS Code explorer
 - [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense) -  autocomplete filenames
@@ -542,5 +550,5 @@ $ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/setti
 To install all extensions by one command use:
 
 ```shell
-$ code --install-extension CoenraadS.bracket-pair-colorizer --install-extension PKief.material-icon-theme --install-extension alefragnani.project-manager --install-extension christian-kohler.path-intellisense --install-extension dbaeumer.vscode-eslint --install-extension formulahendry.auto-rename-tag --install-extension mrmlnc.vscode-scss --install-extension msjsdiag.debugger-for-chrome --install-extension techer.open-in-browser --install-extension wayou.vscode-todo-highlight --install-extension xabikos.ReactSnippets --install-extension xabikos.JavaScriptSnippets
+$ code --install-extension CoenraadS.bracket-pair-colorizer --install-extension PKief.material-icon-theme --install-extension alefragnani.project-manager --install-extension christian-kohler.path-intellisense --install-extension dbaeumer.vscode-eslint --install-extension formulahendry.auto-rename-tag --install-extension mrmlnc.vscode-scss --install-extension msjsdiag.debugger-for-chrome --install-extension techer.open-in-browser --install-extension wayou.vscode-todo-highlight --install-extension xabikos.ReactSnippets --install-extension kamikillerto.vscode-colorize
 ```

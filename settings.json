@@ -4,6 +4,8 @@
   "workbench.activityBar.visible": false,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.statusBar.feedback.visible": false,
+  "workbench.list.openMode": "doubleClick",
+  "workbench.tips.enabled": false,
   "editor.fontSize": 12,
   "editor.tabSize": 2,
   "editor.multiCursorModifier": "ctrlCmd",
@@ -14,11 +16,12 @@
   "explorer.openEditors.visible": 0,
   "explorer.decorations.colors": false,
   "files.insertFinalNewline": true,
-  "html.autoClosingTags": false,
   "files.exclude": {
     "**/node_modules/": true,
     "**/.vscode/": true,
+    "**/.localized": true,
   },
+  "html.autoClosingTags": false,
   "material-icon-theme.folders.theme": "classic",
   "material-icon-theme.hidesExplorerArrows": true,
   "material-icon-theme.folders.color": "#90a4ae",
@@ -39,9 +42,6 @@
       "overviewRulerColor": "red"
     }
   ],
-  "todohighlight.exclude": [
-    "**/public/"
-  ],
   "auto-rename-tag.activationOnLanguage": [
     "html",
     "xml",
@@ -55,5 +55,18 @@
     "backgroundColor : {color}"
   ],
   "bracketPairColorizer.highlightActiveScope": true,
-  "debug.allowBreakpointsEverywhere": true,
+  "colorize.activate_variables_support_beta": true,
+  "colorize.languages": [
+    "css",
+    "sass",
+    "scss",
+    "less",
+    "postcss",
+    "sss",
+    "stylus",
+    "xml",
+    "svg",
+    "javascript",
+    "javascriptreact"
+  ],
 }

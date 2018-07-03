@@ -2,26 +2,6 @@ clear
 
 ARROW=$(tput bold)$(tput setaf 6; echo -n '==>'; tput sgr0;)
 
-IS_HOMEBREW_INSTALLED=false
-if hash brew 2>/dev/null; then
-  IS_HOMEBREW_INSTALLED=true
-fi
-
-IS_NVM_INSTALLED=false
-if ! [ -x "$(command -v nvm)" ]; then
-  IS_NVM_INSTALLED=true
-fi
-
-IS_NODE_INSTALLED=false
-if hash node 2>/dev/null; then
-  IS_NODE_INSTALLED=true
-fi
-
-IS_VSCODE_INSTALLED=false
-if hash code 2>/dev/null; then
-  IS_VSCODE_INSTALLED=true
-fi
-
 echo "Welcome to the installer!"
 echo -e "First, introduce your password to execute all the commands as super user. \n"
 echo -e "\033[1;31mImportant:\033[0m You can be asked more times for password during the process."
@@ -38,12 +18,11 @@ install_bundle() {
 
   applications_to_install=(
     appcleaner
-    filezilla
+    cyberduck
     firefox
     flux
     fork
     google-chrome
-    kap
     keepingyouawake
     keka
     mamp
@@ -59,7 +38,10 @@ install_bundle() {
     vlc
   )
 
-  brew cask install "${applications_to_install[@]}"
+  for application in "${applications_to_install[@]}"
+  do
+    brew cask install ${application}
+  done
 
   mas install 408981434 #iMovie
   mas install 409203825 #Numbers
@@ -76,12 +58,20 @@ install_npm_packages() {
     webpack
   )
 
-  npm install -g "${npm_packages[@]}"
+  for package in "${npm_packages[@]}"
+  do
+    npm install -g ${package}
+  done
 }
 
 #----------------------------
 # Homebrew
 #----------------------------
+IS_HOMEBREW_INSTALLED=false
+if hash brew 2>/dev/null; then
+  IS_HOMEBREW_INSTALLED=true
+fi
+
 if $IS_HOMEBREW_INSTALLED; then
   echo "${ARROW} Homebrew already installed!"
 else
@@ -150,6 +140,11 @@ fi
 #----------------------------
 # Node Version Manager
 #----------------------------
+IS_NVM_INSTALLED=false
+if ! [ -x "$(command -v nvm)" ]; then
+  IS_NVM_INSTALLED=true
+fi
+
 if $IS_NVM_INSTALLED; then
   echo "${ARROW} Node Version Manager already installed!"
 else
@@ -167,6 +162,11 @@ fi
 #----------------------------
 # Node.js
 #----------------------------
+IS_NODE_INSTALLED=false
+if hash node 2>/dev/null; then
+  IS_NODE_INSTALLED=true
+fi
+
 if $IS_NODE_INSTALLED; then
   echo "${ARROW} Node.js already installed!"
 else
@@ -197,12 +197,17 @@ fi
 #----------------------------
 # VSCode extensions
 #----------------------------
+IS_VSCODE_INSTALLED=false
+if hash code 2>/dev/null; then
+  IS_VSCODE_INSTALLED=true
+fi
+
 if $IS_VSCODE_INSTALLED; then
   read -p "${ARROW} Install bundle of Visual Studio Code extensions? [y/n]: "
 
   if [ "$REPLY" == "y" ]; then
     echo "${ARROW} Installing Visual Studio Code extensions..."
-    code --install-extension CoenraadS.bracket-pair-colorizer --install-extension PKief.material-icon-theme --install-extension alefragnani.project-manager --install-extension christian-kohler.path-intellisense --install-extension dbaeumer.vscode-eslint --install-extension formulahendry.auto-rename-tag --install-extension mrmlnc.vscode-scss --install-extension msjsdiag.debugger-for-chrome --install-extension techer.open-in-browser --install-extension wayou.vscode-todo-highlight --install-extension xabikos.ReactSnippets --install-extension xabikos.JavaScriptSnippets
+    code --install-extension CoenraadS.bracket-pair-colorizer --install-extension PKief.material-icon-theme --install-extension alefragnani.project-manager --install-extension christian-kohler.path-intellisense --install-extension dbaeumer.vscode-eslint --install-extension formulahendry.auto-rename-tag --install-extension mrmlnc.vscode-scss --install-extension msjsdiag.debugger-for-chrome --install-extension techer.open-in-browser --install-extension wayou.vscode-todo-highlight --install-extension xabikos.ReactSnippets --install-extension kamikillerto.vscode-colorize
   fi
 fi
 
@@ -233,11 +238,17 @@ fi
 # Spectacle shortcuts
 #----------------------------
 
-read -p "${ARROW} Configure Spectacle shotrcuts? [y/n]: "
+if [ -d /Applications/Spectacle.app/ ]; then
+  IS_SPECTACLE_INSTALLED=true
+fi
 
-if [ "$REPLY" == "y" ]; then
-  echo "${ARROW} Configuring Spectacle shotrcuts..."
-  cp -r spectacle.json ~/Library/Application\ Support/Spectacle/Shortcuts.json 2> /dev/null
+if $IS_SPECTACLE_INSTALLED; then
+  read -p "${ARROW} Configure Spectacle shotrcuts? [y/n]: "
+
+  if [ "$REPLY" == "y" ]; then
+    echo "${ARROW} Configuring Spectacle shotrcuts..."
+    cp -r spectacle.json ~/Library/Application\ Support/Spectacle/Shortcuts.json 2> /dev/null
+  fi
 fi
 
 #----------------------------
