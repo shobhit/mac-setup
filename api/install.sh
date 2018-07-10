@@ -1,73 +1,25 @@
+#!/bin/bash
+
+source ../bootstrap.sh
+source ./brew.sh
+source ./npm.sh
+
+# Clear the terminal screen
 clear
 
-ARROW=$(tput bold)$(tput setaf 6; echo -n '==>'; tput sgr0;)
-
 echo "Welcome to the installer!"
-echo -e "First, introduce your password to execute all the commands as super user. \n"
-echo -e "\033[1;31mImportant:\033[0m You can be asked more times for password during the process."
-echo "Also, make sure that You are logged in to the Mac App Store."
-echo
+echo -e "First, introduce your password to execute all the commands as super user.$NEW_LINE"
+echo -e "${RED}${BOLD}Important:$DEFAULT You can be asked more times for password during the process."
+echo -e "Also, make sure that You are logged in to the Mac App Store.$NEW_LINE"
 
+# Prompt user for password
 sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-install_bundle() {
-  brew tap caskroom/cask
-
-  brew install mas
-
-  applications_to_install=(
-    appcleaner
-    cyberduck
-    firefox
-    flux
-    fork
-    google-chrome
-    keepingyouawake
-    keka
-    mamp
-    opera
-    postman
-    sequel-pro
-    skype
-    slack
-    spectacle
-    transmission
-    tunnelblick
-    visual-studio-code
-    vlc
-  )
-
-  for application in "${applications_to_install[@]}"
-  do
-    brew cask install ${application}
-  done
-
-  mas install 408981434 #iMovie
-  mas install 409203825 #Numbers
-  mas install 409201541 #Pages
-}
-
-install_npm_packages() {
-  npm_packages=(
-    create-react-app
-    gulp-cli
-    jest
-    live-server
-    npm-upgrade
-    webpack
-  )
-
-  for package in "${npm_packages[@]}"
-  do
-    npm install -g ${package}
-  done
-}
 
 #----------------------------
 # Homebrew
 #----------------------------
-IS_HOMEBREW_INSTALLED=false
+
 if hash brew 2>/dev/null; then
   IS_HOMEBREW_INSTALLED=true
 fi
@@ -92,6 +44,7 @@ fi
 #----------------------------
 # Git
 #----------------------------
+
 if $IS_HOMEBREW_INSTALLED; then
   read -p "${ARROW} Install latest Git version via Homebrew? [y/n]: "
 
@@ -104,6 +57,7 @@ fi
 #----------------------------
 # .bash_profile
 #----------------------------
+
 read -p "${ARROW} Configure .bash_profile? [y/n]: "
 
 if [ "$REPLY" == "y" ]; then
@@ -114,6 +68,7 @@ fi
 #----------------------------
 # Application bundle
 #----------------------------
+
 if $IS_HOMEBREW_INSTALLED; then
   read -p "${ARROW} Install bundle of applications via Homebrew-Cask? [y/n]: "
 
@@ -130,6 +85,7 @@ fi
 #----------------------------
 # Terminal profile
 #----------------------------
+
 read -p "${ARROW} Configure Terminal profile? [y/n]: "
 
 if [ "$REPLY" == "y" ]; then
@@ -140,7 +96,7 @@ fi
 #----------------------------
 # Node Version Manager
 #----------------------------
-IS_NVM_INSTALLED=false
+
 if ! [ -x "$(command -v nvm)" ]; then
   IS_NVM_INSTALLED=true
 fi
@@ -162,7 +118,7 @@ fi
 #----------------------------
 # Node.js
 #----------------------------
-IS_NODE_INSTALLED=false
+
 if hash node 2>/dev/null; then
   IS_NODE_INSTALLED=true
 fi
@@ -183,8 +139,9 @@ else
 fi
 
 #----------------------------
-# Npm packages
+# npm packages
 #----------------------------
+
 if $IS_NODE_INSTALLED; then
   read -p "${ARROW} Install bundle of npm packages? [y/n]: "
 
@@ -195,9 +152,9 @@ if $IS_NODE_INSTALLED; then
 fi
 
 #----------------------------
-# VSCode extensions
+# VS Code extensions
 #----------------------------
-IS_VSCODE_INSTALLED=false
+
 if hash code 2>/dev/null; then
   IS_VSCODE_INSTALLED=true
 fi
@@ -212,8 +169,9 @@ if $IS_VSCODE_INSTALLED; then
 fi
 
 #----------------------------
-# VSCode Settings
+# VS Code Settings
 #----------------------------
+
 if $IS_VSCODE_INSTALLED; then
   read -p "${ARROW} Configure Visual Studio Code settings? [y/n]: "
 
@@ -254,6 +212,7 @@ fi
 #----------------------------
 # Firmware password
 #----------------------------
+
 if [[ $(sudo firmwarepasswd -check) =~ "Password Enabled: Yes" ]]; then
   echo "${ARROW} Firmware password is already set up!"
 else 
@@ -267,6 +226,7 @@ fi
 #----------------------------
 # Computer name
 #----------------------------
+
 read -p "${ARROW} Set computer name? [y/n]: "
 
 if [ "$REPLY" == "y" ]; then
@@ -288,6 +248,7 @@ if [ "$REPLY" == "y" ]; then
   . ./api/defaults.sh
 fi
 
-echo -e "\033[1;33m\nNote:\033[0m Some changes may need system restart to be applied!\n\033[1;32m\nCongratulations, installation complete!\033[0m"
+echo -e "${NEW_LINE}${YELLOW}${BOLD}Note:$DEFAULT Some changes may need system restart to be applied!"
+echo -e "${NEW_LINE}${GREEN}${BOLD}Congratulations, installation complete!${DEFUALT}"
 
 exit 1

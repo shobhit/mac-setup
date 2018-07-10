@@ -1,28 +1,23 @@
 <div align="center">
   <a href="https://github.com/appalaszynski/mac-setup">
-    <img src="https://user-images.githubusercontent.com/35331661/37242209-c5d740cc-2465-11e8-92b3-e6d786e98dda.jpg" width="125px">
+    <img src="https://user-images.githubusercontent.com/35331661/42513368-094cd8ca-8457-11e8-9a20-bc1601b14d25.png" height="125px">
   </a>
-  <br>
   <h1>Mac Setup</h1>
   <p>
     <em>Front End Web Development Setup for macOS</em>
   </p>
   <p>
     <a href="https://github.com/appalaszynski/mac-setup/stargazers">
-      <img src="https://img.shields.io/github/stars/appalaszynski/mac-setup.svg" /> 
-    </a>
-    <a href="https://github.com/appalaszynski/mac-setup">
-      <img src="https://img.shields.io/badge/macOS-10.13.5-blue.svg" /> 
+      <img src="https://img.shields.io/github/stars/appalaszynski/mac-setup.svg" alt="Stars" /> 
     </a>
     <a href="https://github.com/appalaszynski/mac-setup/commits/master">
-      <img src="https://img.shields.io/github/last-commit/appalaszynski/mac-setup.svg" />
+      <img src="https://img.shields.io/github/last-commit/appalaszynski/mac-setup.svg" alt="Last Commit" />
     </a>
   </p>
   <br>
-  <br>
 </div>
 
-This document describes how I set up front end web development environment on my MacBook Air with macOS High Sierra 10.13.5.
+This document describes how I set up front end web development environment on my MacBook Air with **macOS High Sierra 10.13.6**.
 
 ---
 
@@ -44,25 +39,32 @@ This document describes how I set up front end web development environment on my
 ## Installation
 
 You can follow the instructions below or use shell script to configure settings automatically.
-There are two ways to do it:
+If you decided on the second option, there are two ways:
 
-- clone/download the repository into your computer and then execute ```mac-setup.sh``` script,
+- clone/download the repository into your computer and execute `bootstrap.sh` script from directory where `bootstrap.sh` is located:
+```shell
+$ cd mac-setup
+$ ls
+Brewfile       README.md      bootstrap.sh   spectacle.json
+Flat.terminal  api            settings.json
+$ bash bootstrap.sh
+```
 - one line installation - open your terminal and paste the following code:
  
 ```shell
-$ curl -L https://github.com/appalaszynski/mac-setup/archive/master.tar.gz | tar -xvz; cd mac-setup-master; chmod +x mac-setup.sh; ./mac-setup.sh
+$ curl -L https://github.com/appalaszynski/mac-setup/archive/master.tar.gz | tar -xvz; cd mac-setup-master; chmod +x mac-setup.sh; ./bootstrap.sh
 ```
 
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/35331661/40432542-3d8a4370-5eaa-11e8-88ea-b9974ae13e82.png">
+  <br>
+  <img src="https://user-images.githubusercontent.com/35331661/42525540-b2a2a06e-8473-11e8-9155-75dff604e3b5.png">
 </div>
 
 ---
 
 ## System Preferences
 
-After a clean install of operating system, there are a couple tweaks I like to make to the System Preferences. Some of them are not strictly related to web development environment - I use them because of my personal habits.
-
+After a clean install of operating system, there are a couple of tweaks I like to make to the System Preferences. Some of them are not strictly related to web development environment - I use them because of my personal habits.
 
 - General > User dark menu bar and Dock
 - General > Ask to keep changes when closing documents
@@ -71,9 +73,11 @@ After a clean install of operating system, there are a couple tweaks I like to m
 - Keyboard > Key Repeat > Fast (all the way to the right)
 - Keyboard > Delay Until Repeat > Short (all the way to the right)
 
+Much more settings can be configured by macOS `defaults` - command line utility that manipulates system configuration files. The system stores user preferences in a `.plist` files located in `~/Library/Preferences` directory.
+
 ### Set Dock size
 
-In my opinion, the best size of the dock is 35. Remember that this is due to the size and resolution of the screen.
+In my opinion, the best size of the dock is `35`. Remember that this is due to the size and resolution of my MacBook screen.
 
 ```shell
 $ defaults write com.apple.dock tilesize -int 35; killall Dock
@@ -135,7 +139,7 @@ I use my custom Terminal profile which I called **Flat**. You can download it by
 $ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/Flat.terminal
 ```
 
-To use it as default profile open downloaded `Flat.terminal` file and click **Shell** > **Use settings as default** option.
+To use it as default profile, open downloaded `Flat.terminal` file and click **Shell** > **Use settings as default** option.
 
 ---
 
@@ -259,14 +263,14 @@ Here are all the programs I install with a brief description.
 Below are the entire contents of my `Brewfile`, which will install all the above programs with a single command.
 
 ```ruby
-# Install Cask (Homebrew extension).
+# Install Cask (Homebrew extension)
 tap 'caskroom/cask'
 
-# Install Git and mas-cli by Homebrew.
+# Install Git and mas-cli by Homebrew
 brew 'git' 
 brew 'mas'
 
-# Install programs by Cask.
+# Install programs by Cask
 cask 'appcleaner'
 cask 'cyberduck'
 cask 'firefox'
@@ -287,13 +291,13 @@ cask 'tunnelblick'
 cask 'visual-studio-code'
 cask 'vlc'
 
-# Install apps from App Store by mas-cli.
+# Install apps from App Store by mas-cli
 mas "iMovie", id: 408981434
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 ```
 
-To check App Store application's IDs use:
+To check App Store application IDs use:
 
 ```shell
 $ mas search <app name>
@@ -338,22 +342,20 @@ $ open .gitconfig
 [user]
   name = First Last
   email = email@email.com
-[github]
-  user = username
 [core]
   editor = editor
 [credential]
   helper = osxkeychain
 ```
 
-Here I set my name, email, GitHub username, core editor and connect Git to the macOS Keychain so I don’t have to type my username and password every time I want to push to GitHub.
+Here I set my name, email, core editor and connect Git to the macOS Keychain so I don’t have to type my username and password every time I want to push to GitHub.
 
 ### SSH
 
-You can also authenticate GiHub using SSH public key. You must generate one if they don’t already have one. To do is use following code:
+You can also authenticate with GiHub using SSH key. To generate it, use following code:
 
 ```shell
-$ ssh-keygen -t rsa -b 4096 -C "your_email_used_in_github@example.com"
+$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ```
 
 but first make sure that there is a `~/.ssh` directory on your computer.
@@ -367,7 +369,7 @@ $ ssh-add <path to private key>
 
 Now just login into your Github account and paste content of `id_rsa.pub` file in **Settings** > **SSH and GPG keys** > **New SSH key**.
 
-After you've set up your SSH key and added it to your GitHub account, you can test your connection. Open Terminal and paste following code:
+After you've set up your SSH key and added it to your GitHub account, you can test your connection. Open terminal and paste following code:
 
 ```shell
 $ ssh -T git@github.com
@@ -423,7 +425,7 @@ $ npm install -g create-react-app gulp-cli jest live-server npm-upgrade webpack
 
 ## Web Browsers
 
-Currently I have installed all major web browsers:
+Currently, I have installed all major web browsers:
 
 - [Chrome](https://www.google.com/chrome/)
 - [Safari](https://www.apple.com/safari/)
@@ -440,14 +442,14 @@ For main development I use Google Chrome.
 - [HTTPS Everywhere](https://chrome.google.com/webstore/detail/https-everywhere/gcbommkclmclpchllfjekcdonpmejbdp?hl=pl) - automatically switch from "http" to "https"
 - [JSONView](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc) - validate and view JSON documents
 - [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) - inspect component hierarchies and states
-- [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) - debug state changes
+- [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) - inspect and debug state changes
 - [Pesticide](https://chrome.google.com/webstore/detail/pesticide-for-chrome/bblbgcheenepgnnajgfpiicnbbdmmooh) - toggle different colored outlines on every element for quick CSS layout debug
 
 ---
 
 ## Visual Studio Code
 
-All default settings changes are stored in `settings.json` file. You can open it by pressing `Command ⌘` + `,` or by going to Code > Preferences > Settings. `settings.json` file is located in `/Users/Your Username/Library/Application Support/Code/User`.
+All default settings changes are stored in `settings.json` file. You can open it by pressing `Command ⌘` + `,` or by going to **Code** > **Preferences** > **Settings**. This file is located in `/Users/<your username>/Library/Application Support/Code/User`.
 Here are my `settings.json` contents: 
 
 ```json
@@ -528,7 +530,7 @@ Here are my `settings.json` contents:
 You can copy and paste them or just download whole file by:
 
 ```shell
-$ cd /Users/Your Username/Library/Application Support/Code/User
+$ cd /Users/<your username>/Library/Application Support/Code/User
 $ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/settings.json
 ```
 
