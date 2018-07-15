@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/appalaszynski/mac-setup">
-    <img src="https://user-images.githubusercontent.com/35331661/42513368-094cd8ca-8457-11e8-9a20-bc1601b14d25.png" height="125px">
+    <img src="https://user-images.githubusercontent.com/35331661/42627932-c9f65182-85ce-11e8-84b3-0133c88f8a7e.png" height="125px">
   </a>
   <h1>Mac Setup</h1>
   <p>
@@ -75,7 +75,7 @@ After a clean install of operating system, there are a couple of tweaks I like t
 
 Much more settings can be configured by macOS `defaults` - command line utility that manipulates system configuration files. The system stores user preferences in a `.plist` files located in `~/Library/Preferences` directory.
 
-### Set Dock size
+### Set Dock Size
 
 In my opinion, the best size of the dock is `35`. Remember that this is due to the size and resolution of my MacBook screen.
 
@@ -91,7 +91,7 @@ $ defaults write com.apple.dock tilesize -int 35; killall Dock
 $ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 ```
 
-### Reset icons in Launchpad
+### Reset Icons in Launchpad
 
 I usually use this command after installing every application that I need - it keeps Apple applications on the first page and moves the rest to the next pages.
 
@@ -99,7 +99,7 @@ I usually use this command after installing every application that I need - it k
 $ defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock
 ```
 
-### Show hidden files
+### Show Hidden Files
 
 This can also be done by pressing `Command ⌘` + `Shift ⇧` + `.`.
 
@@ -107,19 +107,19 @@ This can also be done by pressing `Command ⌘` + `Shift ⇧` + `.`.
 $ defaults write com.apple.finder AppleShowAllFiles YES
 ```
 
-### Show path bar in Finder
+### Show Path Bar in Finder
 
 ```shell
 $ defaults write com.apple.finder ShowPathbar -bool true
 ```
 
-### Show status bar in Finder
+### Show Status Bar in Finder
 
 ```shell
 $ defaults write com.apple.finder ShowStatusBar -bool true
 ```
 
-### Set firmware password
+### Set Firmware Password
 
 Setting a firmware password prevents your Mac from starting up from any device other than your startup disk. It may also be set to be required on each boot.
 
@@ -198,7 +198,7 @@ export PS1;
 ```
 
 When bash is invoked it looks for `~/.bash_profile`, reads it and executes commands from it.
-In my `.bash_profile` file I create, among others, a `brewup` alias (keyboard shortcut to avoiding typing a long command sequence) to keep Homebrew (which we are going to install in a second) up to date. I also set color scheme for `ls` command output and for custom prompt which contains username, computer name, working directory and current Git branch.
+In my `.bash_profile` file I create, among others, a `brewup` alias (keyboard shortcut to avoiding typing a long command sequence) to keep Homebrew (which we are going to install in a second) up to date. I also set color scheme for `ls` command output and configure custom prompt which contains username, computer name, working directory and current Git branch.
 
 To download `.bash_profile` and execute its content, use:
 
@@ -297,7 +297,7 @@ mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 ```
 
-To check App Store application IDs use:
+To check App Store application ID use:
 
 ```shell
 $ mas search <app name>
@@ -434,7 +434,7 @@ Currently, I have installed all major web browsers:
 
 For main development I use Google Chrome.
 
-### Chrome extensions
+### Chrome Extensions
 
 - [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm) - block ads
 - [Privacy Badger](https://chrome.google.com/webstore/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp) - block spying ads and invisible trackers
@@ -470,6 +470,8 @@ Here are my `settings.json` contents:
   "problems.decorations.enabled": false,
   "explorer.openEditors.visible": 0,
   "explorer.decorations.colors": false,
+  "extensions.showRecommendationsOnlyOnDemand": true,
+  "extensions.ignoreRecommendations": true,
   "files.insertFinalNewline": true,
   "files.exclude": {
     "**/node_modules/": true,
@@ -482,6 +484,7 @@ Here are my `settings.json` contents:
   "material-icon-theme.folders.color": "#90a4ae",
   "material-icon-theme.opacity": 0.8,
   "eslint.autoFixOnSave": true,
+  "npm.enableScriptExplorer": true,
   "todohighlight.isEnable": true,
   "todohighlight.keywords": [
     {
