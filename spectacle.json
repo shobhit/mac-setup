@@ -40,7 +40,7 @@
     "shortcut_name": "MoveToPreviousDisplay"
   },
   {
-    "shortcut_key_binding": "alt+cmd+z",
+    "shortcut_key_binding": null,
     "shortcut_name": "UndoLastMove"
   },
   {
