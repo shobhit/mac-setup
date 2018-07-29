@@ -4,11 +4,13 @@ brew 'git'
 brew 'mas'
 
 cask 'appcleaner'
+cask 'background-music'
 cask 'cyberduck'
 cask 'firefox'
 cask 'flux'
 cask 'fork'
 cask 'google-chrome'
+cask 'gpg-suite'
 cask 'keepingyouawake'
 cask 'keka'
 cask 'mamp'
@@ -26,3 +28,4 @@ cask 'vlc'
 mas "iMovie", id: 408981434
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "Xcode", id: 497799835

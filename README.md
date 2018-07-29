@@ -238,11 +238,13 @@ Here are all the programs I install with a brief description.
 - [Git](https://git-scm.com) - version control system
 - [mas-cli](https://github.com/mas-cli/mas) - Mac App Store command line interface
 - [AppCleaner](https://freemacsoft.net/appcleaner/) - apps uninstaller
+- [Background Music](https://github.com/kyleneideck/BackgroundMusic) - audio utility
 - [Cyberduck](https://cyberduck.io/) - FTP client
 - [Firefox](https://www.mozilla.org/firefox/new/) - web browser
 - [Flux](https://justgetflux.com) - screen color temperature adjusting app
 - [Fork](https://git-fork.com) - Git GUI client
 - [Google Chrome](https://www.google.pl/chrome/browser/desktop/index.html) - web browser
+- [GPG Suite](https://gpgtools.org/) - communication and files encryption tools
 - [KeepingYouAwake](https://github.com/newmarcel/KeepingYouAwake) - app which prevents Mac from entering sleep mode
 - [Keka](http://www.kekaosx.com) - file archiver
 - [MAMP](https://www.mamp.info/en/) - Apache, MySQL and PHP package
@@ -259,6 +261,7 @@ Here are all the programs I install with a brief description.
 - [iMovie](https://www.apple.com/imovie/) - video editor
 - [Pages](https://www.apple.com/pages/) - text editor
 - [Numbers](https://www.apple.com/numbers/) - spreadsheet editor
+- [Xcode](https://developer.apple.com/xcode/) - IDE for developing software for Apple products
 
 Below are the entire contents of my `Brewfile`, which will install all the above programs with a single command.
 
@@ -272,11 +275,13 @@ brew 'mas'
 
 # Install programs by Cask
 cask 'appcleaner'
+cask 'background-music'
 cask 'cyberduck'
 cask 'firefox'
 cask 'flux'
 cask 'fork'
 cask 'google-chrome'
+cask 'gpg-suite'
 cask 'keepingyouawake'
 cask 'keka'
 cask 'mamp'
@@ -295,6 +300,7 @@ cask 'vlc'
 mas "iMovie", id: 408981434
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "Xcode", id: 497799835
 ```
 
 To check App Store application ID use:

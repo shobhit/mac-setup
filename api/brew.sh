@@ -10,11 +10,13 @@ install_bundle() {
   # List of programs to install by Cask
   applications_to_install=(
     appcleaner
+    background-music
     cyberduck
     firefox
     flux
     fork
     google-chrome
+    gpg-suite
     keepingyouawake
     keka
     mamp
@@ -40,4 +42,5 @@ install_bundle() {
   mas install 408981434 #iMovie
   mas install 409203825 #Numbers
   mas install 409201541 #Pages
+  mas install 497799835 #Xcode
 }
