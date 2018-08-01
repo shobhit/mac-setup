@@ -30,35 +30,11 @@
   "material-icon-theme.opacity": 0.8,
   "eslint.autoFixOnSave": true,
   "npm.enableScriptExplorer": true,
-  "todohighlight.isEnable": true,
-  "todohighlight.keywords": [
-    {
-      "text": "TODO:",
-      "color": "black",
-      "backgroundColor": "yellow",
-      "overviewRulerColor": "yellow"
-    },
-    {
-      "text": "FIXME:",
-      "color": "white",
-      "backgroundColor": "red",
-      "overviewRulerColor": "red"
-    }
-  ],
-  "auto-rename-tag.activationOnLanguage": [
-    "html",
-    "xml",
-    "javascript",
-    "javascriptreact"
-  ],
   "bracketPairColorizer.activeScopeCSS": [
-    "borderStyle : solid",
-    "borderWidth : 1px",
     "borderColor : {color}; opacity: 0.5",
     "backgroundColor : {color}"
   ],
   "bracketPairColorizer.highlightActiveScope": true,
-  "colorize.activate_variables_support_beta": true,
   "colorize.languages": [
     "css",
     "sass",
@@ -71,5 +47,9 @@
     "svg",
     "javascript",
     "javascriptreact"
+  ],
+  "colorize.colorized_variables": [
+    "CSS",
+    "SASS"
   ],
 }

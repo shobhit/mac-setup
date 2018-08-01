@@ -484,35 +484,11 @@ Here are my `settings.json` contents:
   "material-icon-theme.opacity": 0.8,
   "eslint.autoFixOnSave": true,
   "npm.enableScriptExplorer": true,
-  "todohighlight.isEnable": true,
-  "todohighlight.keywords": [
-    {
-      "text": "TODO:",
-      "color": "black",
-      "backgroundColor": "yellow",
-      "overviewRulerColor": "yellow"
-    },
-    {
-      "text": "FIXME:",
-      "color": "white",
-      "backgroundColor": "red",
-      "overviewRulerColor": "red"
-    }
-  ],
-  "auto-rename-tag.activationOnLanguage": [
-    "html",
-    "xml",
-    "javascript",
-    "javascriptreact"
-  ],
   "bracketPairColorizer.activeScopeCSS": [
-    "borderStyle : solid",
-    "borderWidth : 1px",
     "borderColor : {color}; opacity: 0.5",
     "backgroundColor : {color}"
   ],
   "bracketPairColorizer.highlightActiveScope": true,
-  "colorize.activate_variables_support_beta": true,
   "colorize.languages": [
     "css",
     "sass",
@@ -525,6 +501,10 @@ Here are my `settings.json` contents:
     "svg",
     "javascript",
     "javascriptreact"
+  ],
+  "colorize.colorized_variables": [
+    "CSS",
+    "SASS"
   ],
 }
 ```
@@ -539,6 +519,7 @@ $ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/setti
 ### Extensions
 
 - [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag) - automatically rename paired HTML tag
+- [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments) - create more human-friendly comments by highlighting annotations within code
 - [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer) - match brackets to be identified with colours
 - [colorize](https://marketplace.visualstudio.com/items?itemName=kamikillerto.vscode-colorize) - visualize CSS colors in CSS/Sass/Less/PostCSS/Stylus/XML files (works also with variables)
 - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) - debug JavaScript code running in Google Chrome from VS Code
@@ -547,12 +528,10 @@ $ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/setti
 - [open in browser](https://marketplace.visualstudio.com/items?itemName=techer.open-in-browser) - open any file in browser right from VS Code explorer
 - [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense) -  autocomplete filenames
 - [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager) - manage projects right inside VS Code
-- [Reactjs code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets) - code snippets for React development
 - [SCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-scss) - autocomplete variables, mixins, functions etc.
-- [TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight) - highlight and list TODO, FIXME or any annotations within code
 
 To install all extensions by one command use:
 
 ```shell
-$ code --install-extension CoenraadS.bracket-pair-colorizer --install-extension PKief.material-icon-theme --install-extension alefragnani.project-manager --install-extension christian-kohler.path-intellisense --install-extension dbaeumer.vscode-eslint --install-extension formulahendry.auto-rename-tag --install-extension mrmlnc.vscode-scss --install-extension msjsdiag.debugger-for-chrome --install-extension techer.open-in-browser --install-extension wayou.vscode-todo-highlight --install-extension xabikos.ReactSnippets --install-extension kamikillerto.vscode-colorize
+$ code --install-extension CoenraadS.bracket-pair-colorizer --install-extension PKief.material-icon-theme --install-extension alefragnani.project-manager --install-extension christian-kohler.path-intellisense --install-extension dbaeumer.vscode-eslint --install-extension formulahendry.auto-rename-tag --install-extension mrmlnc.vscode-scss --install-extension msjsdiag.debugger-for-chrome --install-extension techer.open-in-browser --install-extension aaron-bond.better-comments --install-extension kamikillerto.vscode-colorize
 ```
