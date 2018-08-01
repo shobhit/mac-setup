@@ -229,7 +229,7 @@ Installing each package separately may take some time. That's why I use [Homebre
 
 Here are all the programs I install with a brief description.
 
-- [Cask](https://caskroom.github.io) - an extension to Homebrew which allows to install almost any program that exists for a Mac
+- [Cask](https://github.com/Homebrew/homebrew-cask) - an extension to Homebrew which allows to install almost any program that exists for a Mac
 - [Git](https://git-scm.com) - version control system
 - [mas-cli](https://github.com/mas-cli/mas) - Mac App Store command line interface
 - [AppCleaner](https://freemacsoft.net/appcleaner/) - apps uninstaller
@@ -254,8 +254,8 @@ Here are all the programs I install with a brief description.
 - [Visual Studio Code](https://code.visualstudio.com) - code editor
 - [VLC](https://www.videolan.org/vlc/) - media player
 - [iMovie](https://www.apple.com/imovie/) - video editor
-- [Pages](https://www.apple.com/pages/) - text editor
 - [Numbers](https://www.apple.com/numbers/) - spreadsheet editor
+- [Pages](https://www.apple.com/pages/) - text editor
 - [Xcode](https://developer.apple.com/xcode/) - IDE for developing software for Apple products
 
 Below are the entire contents of my `Brewfile`, which will install all the above programs with a single command.
@@ -409,17 +409,15 @@ $ nvm install <version>
 ## Node Package Manager
 
 Packages which I use globally at the moment are:
-* [create-react-app](https://github.com/facebook/create-react-app)
 * [gulp-cli](https://gulpjs.com)
 * [jest](http://jestjs.io/)
 * [live-server](http://tapiov.net/live-server/)
 * [npm-upgrade](https://github.com/th0r/npm-upgrade)
-* [webpack](https://webpack.js.org)
 
 To install them use:
 
 ```shell
-$ npm install -g create-react-app gulp-cli jest live-server npm-upgrade webpack
+$ npm install -g gulp-cli jest live-server npm-upgrade
 ```
 
 ---
