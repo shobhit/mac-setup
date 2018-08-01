@@ -164,12 +164,10 @@ defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -int 0
 # Ask to kepp change when closing documents
 defaults write NSGlobalDomain NSCloseAlwaysConfirmsChanges -int 1
 
-# Set up alert sound
+# Set alert sound
 defaults write NSGlobalDomain com.apple.sound.beep.sound -string "/System/Library/Sounds/Funk.aiff"
 
-defaults write NSGlobalDomain WebAutomaticSpellingCorrectionEnabled -int 0
-
-# Set up date format in menubar
+# Set date format in menubar
 defaults write "com.apple.menuextra.clock" DateFormat -string "EEE d.MM  HH:mm"
 defaults write "com.apple.systemuiserver" DateFormat -string "EEE d.MM  HH:mm"
 
@@ -188,21 +186,6 @@ defaults write "com.apple.systemuiserver" DateFormat -string "EEE d.MM  HH:mm"
 # Disable icons preview on the desktop and in other icon views
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showIconPreview 0" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showIconPreview 0" ~/Library/Preferences/com.apple.finder.plist
-
-# Set order of menu bar icons
-defaults write "com.apple.systemuiserver" "NSStatusItem Preferred Position com.apple.menuextra.bluetooth" -int 489
-defaults write "com.apple.systemuiserver" "NSStatusItem Preferred Position com.apple.menuextra.airport" -int 435
-defaults write "com.apple.systemuiserver" "NSStatusItem Preferred Position com.apple.menuextra.volume" -int 324
-defaults write "com.apple.systemuiserver" "NSStatusItem Preferred Position com.apple.menuextra.battery" -int 273 
-defaults write "com.apple.systemuiserver" "NSStatusItem Preferred Position com.apple.menuextra.clock" -int 179
-defaults write "com.apple.systemuiserver" "NSStatusItem Visible Siri" -int 0
-defaults write "com.apple.systemuiserver" "NSStatusItem Visible com.apple.menuextra.airport" -int 1
-defaults write "com.apple.systemuiserver" "NSStatusItem Visible com.apple.menuextra.appleuser" -int 1
-defaults write "com.apple.systemuiserver" "NSStatusItem Visible com.apple.menuextra.battery" -int 1
-defaults write "com.apple.systemuiserver" "NSStatusItem Visible com.apple.menuextra.bluetooth" -int 1
-defaults write "com.apple.systemuiserver" "NSStatusItem Visible com.apple.menuextra.clock" -int 1
-defaults write "com.apple.systemuiserver" "NSStatusItem Visible com.apple.menuextra.volume" -int 1
-defaults write "com.apple.systemuiserver" menuExtras -array "/System/Library/CoreServices/Menu Extras/Clock.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Volume.menu" "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
 
 applications_to_kill=(
   "Activity Monitor"
