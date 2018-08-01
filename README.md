@@ -152,9 +152,6 @@ To use it as default profile, open downloaded `Flat.terminal` file and click **S
 # Homebrew-Cask downloads
 alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor; brew cask cleanup'
 
-# Remove bash history and exit bash shell
-alias rmhis='rm .bash_history; history -c; logout'
-
 # Easier navigation
 alias ..="cd .."
 alias ....="cd ../.."
