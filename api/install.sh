@@ -169,7 +169,7 @@ if $IS_VSCODE_INSTALLED; then
 fi
 
 #----------------------------
-# VS Code Settings
+# VS Code settings
 #----------------------------
 
 if $IS_VSCODE_INSTALLED; then
@@ -178,6 +178,19 @@ if $IS_VSCODE_INSTALLED; then
   if [ "$REPLY" == "y" ]; then
     echo "${ARROW} Configuring Visual Studio Code..."
     cp settings.json /Users/${USER}/Library/Application\ Support/Code/User
+  fi
+fi
+
+#----------------------------
+# VS Code snippets
+#----------------------------
+
+if $IS_VSCODE_INSTALLED; then
+  read -p "${ARROW} Configure Visual Studio Code snippets? [y/n]: "
+
+  if [ "$REPLY" == "y" ]; then
+    echo "${ARROW} Configuring Visual Studio Code snippets..."
+    cp snippets.code-snippets /Users/${USER}/Library/Application\ Support/Code/User/snippets
   fi
 fi
 
