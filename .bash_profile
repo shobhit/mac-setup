@@ -1,8 +1,7 @@
 # Update Homebrew itself, upgrade all packages, remove dead symlinks, remove old versions
 # of installed formulas, clean old downloads from cache, remove versions of formulas, which
-# are downloaded, but not installed, check system for potential problems, remove cached
-# Homebrew-Cask downloads
-alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor; brew cask cleanup'
+# are downloaded, but not installed, check system for potential problems
+alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 
 # Easier navigation
 alias ..="cd .."
