@@ -12,6 +12,7 @@ install_bundle() {
     appcleaner
     background-music
     cyberduck
+    drawio
     firefox
     flux
     fork

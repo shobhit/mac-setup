@@ -235,6 +235,7 @@ Here are all the programs I install with a brief description.
 - [AppCleaner](https://freemacsoft.net/appcleaner/) - apps uninstaller
 - [Background Music](https://github.com/kyleneideck/BackgroundMusic) - audio utility
 - [Cyberduck](https://cyberduck.io/) - FTP client
+- [draw.io](https://www.draw.io/) - diagramming tool
 - [Firefox](https://www.mozilla.org/firefox/new/) - web browser
 - [Flux](https://justgetflux.com) - screen color temperature adjusting app
 - [Fork](https://git-fork.com) - Git GUI client
@@ -272,6 +273,7 @@ brew 'mas'
 cask 'appcleaner'
 cask 'background-music'
 cask 'cyberduck'
+cask 'drawio'
 cask 'firefox'
 cask 'flux'
 cask 'fork'
