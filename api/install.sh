@@ -164,7 +164,7 @@ if $IS_VSCODE_INSTALLED; then
 
   if [ "$REPLY" == "y" ]; then
     echo "${ARROW} Installing Visual Studio Code extensions..."
-    code --install-extension CoenraadS.bracket-pair-colorizer --install-extension PKief.material-icon-theme --install-extension alefragnani.project-manager --install-extension christian-kohler.path-intellisense --install-extension dbaeumer.vscode-eslint --install-extension formulahendry.auto-rename-tag --install-extension mrmlnc.vscode-scss --install-extension msjsdiag.debugger-for-chrome --install-extension techer.open-in-browser --install-extension aaron-bond.better-comments --install-extension kamikillerto.vscode-colorize
+    code --install-extension CoenraadS.bracket-pair-colorizer --install-extension PKief.material-icon-theme --install-extension alefragnani.project-manager --install-extension christian-kohler.path-intellisense --install-extension dbaeumer.vscode-eslint --install-extension formulahendry.auto-rename-tag --install-extension mrmlnc.vscode-scss --install-extension msjsdiag.debugger-for-chrome --install-extension techer.open-in-browser --install-extension aaron-bond.better-comments --install-extension kamikillerto.vscode-colorize --install-extension christian-kohler.npm-intellisense
   fi
 fi
 

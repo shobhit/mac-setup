@@ -467,6 +467,8 @@ Here are my `settings.json` contents:
   "editor.minimap.enabled": false,
   "editor.formatOnPaste": true,
   "editor.detectIndentation": false,
+  "editor.dragAndDrop": false,
+  "editor.snippetSuggestions": "top",
   "problems.decorations.enabled": false,
   "explorer.openEditors.visible": 0,
   "explorer.decorations.colors": false,
@@ -476,7 +478,7 @@ Here are my `settings.json` contents:
   "files.exclude": {
     "**/node_modules/": true,
     "**/.vscode/": true,
-    "**/.localized": true,
+    "**/.localized": true
   },
   "html.autoClosingTags": false,
   "material-icon-theme.folders.theme": "classic",
@@ -526,6 +528,7 @@ $ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/setti
 - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) - debug JavaScript code running in Google Chrome from VS Code
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - integrate ESLint into VS Code
 - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) - icons based on Material Design
+- [npm Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense) - autocomplete npm modules in import statements
 - [open in browser](https://marketplace.visualstudio.com/items?itemName=techer.open-in-browser) - open any file in browser right from VS Code explorer
 - [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense) -  autocomplete filenames
 - [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager) - manage projects right inside VS Code
@@ -534,7 +537,7 @@ $ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/setti
 To install all extensions by one command use:
 
 ```shell
-$ code --install-extension CoenraadS.bracket-pair-colorizer --install-extension PKief.material-icon-theme --install-extension alefragnani.project-manager --install-extension christian-kohler.path-intellisense --install-extension dbaeumer.vscode-eslint --install-extension formulahendry.auto-rename-tag --install-extension mrmlnc.vscode-scss --install-extension msjsdiag.debugger-for-chrome --install-extension techer.open-in-browser --install-extension aaron-bond.better-comments --install-extension kamikillerto.vscode-colorize
+$ code --install-extension CoenraadS.bracket-pair-colorizer --install-extension PKief.material-icon-theme --install-extension alefragnani.project-manager --install-extension christian-kohler.path-intellisense --install-extension dbaeumer.vscode-eslint --install-extension formulahendry.auto-rename-tag --install-extension mrmlnc.vscode-scss --install-extension msjsdiag.debugger-for-chrome --install-extension techer.open-in-browser --install-extension aaron-bond.better-comments --install-extension kamikillerto.vscode-colorize --install-extension christian-kohler.npm-intellisense
 ```
 
 ### Snippets

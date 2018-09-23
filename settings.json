@@ -12,6 +12,8 @@
   "editor.minimap.enabled": false,
   "editor.formatOnPaste": true,
   "editor.detectIndentation": false,
+  "editor.dragAndDrop": false,
+  "editor.snippetSuggestions": "top",
   "problems.decorations.enabled": false,
   "explorer.openEditors.visible": 0,
   "explorer.decorations.colors": false,
@@ -21,7 +23,7 @@
   "files.exclude": {
     "**/node_modules/": true,
     "**/.vscode/": true,
-    "**/.localized": true,
+    "**/.localized": true
   },
   "html.autoClosingTags": false,
   "material-icon-theme.folders.theme": "classic",
