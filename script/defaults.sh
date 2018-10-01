@@ -20,40 +20,6 @@ defaults write com.apple.finder NewWindowTarget -string "PfHm"
 # Disable showing tags
 defaults write com.apple.finder ShowRecentTags -int 0
 
-#################################
-#### SAFARI
-#################################
-
-# Disable auto-fill
-defaults write com.apple.Safari AutoFillCreditCardData -int 0
-defaults write com.apple.Safari AutoFillFromAddressBook -int 0
-defaults write com.apple.Safari AutoFillMiscellaneousForms -int 0
-defaults write com.apple.Safari AutoFillPasswords -int 0
-
-# Prevent Safari from opening ‘safe’ files automatically after downloading
-defaults write com.apple.Safari AutoOpenSafeDownloads -int 0
-
-# Remove history after one day
-defaults write com.apple.Safari HistoryAgeInDaysLimit -int 1
-
-# Prevent Safari from loading "best match" site before opening it
-defaults write com.apple.Safari PreloadTopHit -int 0
-
-# Enable “Do Not Track”
-defaults write com.apple.Safari SendDoNotTrackHTTPHeader -int 1
-
-# Show the full URL in the address bar
-defaults write com.apple.Safari ShowFullURLInSmartSearchField -int 1
-
-# Don’t send search queries to Apple
-defaults write com.apple.Safari SuppressSearchSuggestions -int 0
-defaults write com.apple.Safari UniversalSearchEnabled -int 0
-defaults write com.apple.Safari WebsiteSpecificSearchEnabled -int 0
-
-# Enable the Develop menu and the Web Inspector in Safari
-defaults write com.apple.Safari IncludeDevelopMenu -int 1
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -int 1
-
 ########################################
 #### DOCK
 ########################################
@@ -137,13 +103,13 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 #################################
 
 # Disable transparency
-defaults write com.apple.universalaccess reduceTransparency -bool true
+defaults read com.apple.universalaccess reduceTransparency -bool true
 
 # Use plain text mode for new TextEdit documents
-defaults write com.apple.TextEdit RichText -int 0
+defaults read com.apple.TextEdit RichText -int 0
 
 # Disable spelling check in TextEdit documents
-defaults write com.apple.TextEdit CheckSpellingWhileTyping -int 0
+defaults read com.apple.TextEdit CheckSpellingWhileTyping -int 0
 
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
@@ -169,23 +135,6 @@ defaults write NSGlobalDomain com.apple.sound.beep.sound -string "/System/Librar
 
 # Set date format in menubar
 defaults write "com.apple.menuextra.clock" DateFormat -string "EEE d.MM  HH:mm"
-defaults write "com.apple.systemuiserver" DateFormat -string "EEE d.MM  HH:mm"
-
-# Enable snap-to-grid for icons on the desktop and in other icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-
-# Decrease grid spacing for icons on the desktop and in other icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 15" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 15" ~/Library/Preferences/com.apple.finder.plist
-
-# Decrease the size of icons on the desktop and in other icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 44" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 44" ~/Library/Preferences/com.apple.finder.plist
-
-# Disable icons preview on the desktop and in other icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showIconPreview 0" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showIconPreview 0" ~/Library/Preferences/com.apple.finder.plist
 
 applications_to_kill=(
   "Activity Monitor"

@@ -17,7 +17,7 @@
   <br>
 </div>
 
-This document describes how I set up front end web development environment on my MacBook Air with **macOS High Sierra 10.13.6**.
+This document describes how I set up front end web development environment on my MacBook Air with **macOS Mojave 10.14**.
 
 ---
 
@@ -38,33 +38,34 @@ This document describes how I set up front end web development environment on my
 
 ## Installation
 
-You can follow the instructions below or use shell script to configure settings automatically.
-If you decided on the second option, there are two ways:
+You can follow the instructions below or use shell script to configure settings automatically. If you decided on the second option there are two ways:
 
-- clone/download the repository into your computer and execute `bootstrap.sh` script from directory where `bootstrap.sh` is located:
+- clone/download the repository into your computer and execute `install.sh` from repo root directory:
+
 ```shell
 $ cd mac-setup
 $ ls
-Brewfile       README.md      bootstrap.sh   spectacle.json
-Flat.terminal  api            settings.json
-$ bash bootstrap.sh
+Brewfile               README.md              settings.json          spectacle.json
+Flat.terminal          script                 snippets.code-snippets
+$ bash script/install.sh
 ```
+
 - one line installation - open your terminal and paste the following code:
  
 ```shell
-$ curl -L https://github.com/appalaszynski/mac-setup/archive/master.tar.gz | tar -xvz; cd mac-setup-master; chmod +x mac-setup.sh; ./bootstrap.sh
+$ curl -L https://github.com/appalaszynski/mac-setup/archive/master.tar.gz | tar -xvz; cd mac-setup-master; chmod +x script/install.sh; script/install.sh
 ```
 
 <div align="center">
   <br>
-  <img src="https://user-images.githubusercontent.com/35331661/42525540-b2a2a06e-8473-11e8-9155-75dff604e3b5.png">
+  <img src="https://user-images.githubusercontent.com/35331661/46304817-fa0e7400-c5af-11e8-9e61-4677c1aff728.png">
 </div>
 
 ---
 
 ## System Preferences
 
-After a clean install of operating system, there are a couple of tweaks I like to make to the System Preferences. Some of them are not strictly related to web development environment - I use them because of my personal habits.
+After clean install of operating system there are a couple of tweaks I like to make to the System Preferences. Some of them are not strictly related to web development environment - I use them because of my personal habits.
 
 - General > User dark menu bar and Dock
 - General > Ask to keep changes when closing documents
@@ -194,7 +195,7 @@ export PS1;
 When bash is invoked it looks for `~/.bash_profile`, reads it and executes commands from it.
 In my `.bash_profile` file I create, among others, a `brewup` alias (keyboard shortcut to avoiding typing a long command sequence) to keep Homebrew (which we are going to install in a second) up to date. I also set color scheme for `ls` command output and configure custom prompt which contains username, computer name, working directory and current Git branch.
 
-To download `.bash_profile` and execute its content, use:
+To download my `.bash_profile` and execute its content use:
 
 ```shell
 $ cd ~
@@ -206,7 +207,7 @@ $ source ~/.bash_profile
 
 ## Homebrew
 
-[Homebrew](http://brew.sh/) package manager allows to install almost any app right from the command line.
+[Homebrew](http://brew.sh/) package manager allows to install almost any application right from the command line.
 
 ### Installation
 
@@ -216,19 +217,24 @@ $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/inst
 
 ### Usage
 
-To install specific package use ```brew install <package>``` e.g.
+To install Homebrew package use ```brew install <package>```:
 
 ```shell
-$ brew install git
+$ brew install <package name>
+```
+
+To install GUI macOS applications use [Homebrew Cask](https://github.com/Homebrew/homebrew-cask):
+
+```shell
+$ brew cask install <application name>
 ```
 
 ### Brewfile
 
-Installing each package separately may take some time. That's why I use [Homebrew Bundle](https://github.com/Homebrew/homebrew-bundle), which allows to automatically install all packages and applications listed in the `Brewfile` file.
+Installing each application and package separately may take some time. [Homebrew Bundle](https://github.com/Homebrew/homebrew-bundle) allows to automatically install everything listed in the `Brewfile` file.
 
-Here are all the programs I install with a brief description.
+Here are all applications I usually install with a brief description.
 
-- [Cask](https://github.com/Homebrew/homebrew-cask) - an extension to Homebrew which allows to install almost any program that exists for a Mac
 - [Git](https://git-scm.com) - version control system
 - [mas-cli](https://github.com/mas-cli/mas) - Mac App Store command line interface
 - [AppCleaner](https://freemacsoft.net/appcleaner/) - apps uninstaller
@@ -258,17 +264,14 @@ Here are all the programs I install with a brief description.
 - [Pages](https://www.apple.com/pages/) - text editor
 - [Xcode](https://developer.apple.com/xcode/) - IDE for developing software for Apple products
 
-Below are the entire contents of my `Brewfile`, which will install all the above programs with a single command.
+Below are the entire contents of my `Brewfile`.
 
 ```ruby
-# Install Cask (Homebrew extension)
-tap 'caskroom/cask'
-
-# Install Git and mas-cli by Homebrew
+# Install Git and mas-cli via Homebrew
 brew 'git' 
 brew 'mas'
 
-# Install programs by Cask
+# Install applications via Homebrew Cask
 cask 'appcleaner'
 cask 'background-music'
 cask 'cyberduck'
@@ -292,28 +295,26 @@ cask 'tunnelblick'
 cask 'visual-studio-code'
 cask 'vlc'
 
-# Install apps from App Store by mas-cli
+# Install applications from App Store via mas-cli
 mas "iMovie", id: 408981434
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Xcode", id: 497799835
 ```
 
-To check App Store application ID use:
+To check App Store application ID you must install `mas-cli` first. Then use:
 
 ```shell
 $ mas search <app name>
 ```
 
-but, of course, you must first install `mas-cli`.
-
-To download my `Brewfile` file type:
+My `Brewfile` file can be downloaded using:
 
 ```shell
 $ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/Brewfile
 ```
 
-To install applications listed in `Brewfile` use:
+To install listed applications type:
 
 ```shell
 $ brew bundle
@@ -354,13 +355,11 @@ Here I set my name, email, core editor and connect Git to the macOS Keychain so 
 
 ### SSH
 
-You can also authenticate with GiHub using SSH key. To generate it, use following code:
+You can also authenticate with GiHub using SSH key. To generate it use following code:
 
 ```shell
 $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ```
-
-but first make sure that there is a `~/.ssh` directory on your computer.
 
 Above command will create a private key (`id_rsa`) and public key (`id_rsa.pub`) in `~/.ssh` directory.
 Next, add your newly created SSH key to the ssh-agent to be able to manage your keys.
@@ -393,7 +392,7 @@ For installation of Node.js I like to use [Node Version Manager](https://github.
 $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 ```
 
-You can check all available Node.js versions by:
+You can check all available Node.js versions by typing:
 
 ```shell
 $ nvm list-remote
@@ -413,12 +412,12 @@ Packages which I use globally at the moment are:
 * [gulp-cli](https://gulpjs.com)
 * [jest](http://jestjs.io/)
 * [live-server](http://tapiov.net/live-server/)
-* [npm-upgrade](https://github.com/th0r/npm-upgrade)
+* [create-react-app](https://github.com/facebook/create-react-app)
 
 To install them use:
 
 ```shell
-$ npm install -g gulp-cli jest live-server npm-upgrade
+$ npm install -g gulp-cli jest live-server create-react-app
 ```
 
 ---
@@ -449,7 +448,7 @@ For main development I use Google Chrome.
 
 ## Visual Studio Code
 
-All default settings changes are stored in `settings.json` file. You can open it by pressing `Command ⌘` + `,` or by going to **Code** > **Preferences** > **Settings**. This file is located in `/Users/<your username>/Library/Application Support/Code/User`.
+All default settings changes are stored in `settings.json` file located in `/Users/<your username>/Library/Application Support/Code/User`. You can open it by pressing `Command ⌘` + `Shift ⇧` + `p` and choosing `Preferences: Open Settings (JSON)`.
 Here are my `settings.json` contents: 
 
 ```json
@@ -464,6 +463,7 @@ Here are my `settings.json` contents:
   "editor.fontSize": 12,
   "editor.tabSize": 2,
   "editor.multiCursorModifier": "ctrlCmd",
+  "editor.wordWrap": "on",
   "editor.minimap.enabled": false,
   "editor.formatOnPaste": true,
   "editor.detectIndentation": false,
@@ -477,7 +477,6 @@ Here are my `settings.json` contents:
   "files.insertFinalNewline": true,
   "files.exclude": {
     "**/node_modules/": true,
-    "**/.vscode/": true,
     "**/.localized": true
   },
   "html.autoClosingTags": false,
@@ -512,7 +511,7 @@ Here are my `settings.json` contents:
 }
 ```
 
-You can copy and paste them or just download whole file by:
+You can copy and paste them or just download whole file by typing:
 
 ```shell
 $ cd /Users/<your username>/Library/Application Support/Code/User
@@ -542,6 +541,6 @@ $ code --install-extension CoenraadS.bracket-pair-colorizer --install-extension 
 
 ### Snippets
 
-I use my own global snippets instead of installing an extensions. User custom global snippets are located in `/Users/<your username>/Library/Application Support/Code/User/snippets` as files with `code-snippets` extension. You can easily create or edit them by going to **Code** > **Preferences** > **User Snippets** and selecting specific file from a list.
+I use my own global snippets instead of installing snippets extensions. User custom global snippets are located in `/Users/<your username>/Library/Application Support/Code/User/snippets` as files with `code-snippets` extension. You can easily create or edit them by going to **Code** > **Preferences** > **User Snippets**.
 
 You can find all my snippets in [snippets.code-snippets](https://github.com/appalaszynski/mac-setup/blob/master/snippets.code-snippets).

@@ -9,6 +9,7 @@
   "editor.fontSize": 12,
   "editor.tabSize": 2,
   "editor.multiCursorModifier": "ctrlCmd",
+  "editor.wordWrap": "on",
   "editor.minimap.enabled": false,
   "editor.formatOnPaste": true,
   "editor.detectIndentation": false,
@@ -22,7 +23,6 @@
   "files.insertFinalNewline": true,
   "files.exclude": {
     "**/node_modules/": true,
-    "**/.vscode/": true,
     "**/.localized": true
   },
   "html.autoClosingTags": false,
