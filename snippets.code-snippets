@@ -45,17 +45,6 @@
     "body": "import React from 'react';\nimport PropTypes from 'prop-types';\n\nconst ${1:${TM_FILENAME_BASE}} = props => {\n\treturn (\n\t\t<div>\n\t\t\t\n\t\t</div>\n\t);\n};\n\n${1:${TM_FILENAME_BASE}}.propTypes = {\n\t$0\n};\n\nexport default ${1:${TM_FILENAME_BASE}};",
     "description": "Create React stateless component with PropTypes"
   },
-  // React Native
-  "importReactNative": {
-    "prefix": "imrn",
-    "body": "import { ${1:View} } from 'react-native';",
-    "description": "Import React Native element"
-  },
-  "createReactNativeStyleSheet": {
-    "prefix": "rnss",
-    "body": "const ${1:styles} = StyleSheet.create({\n\t$2\n});",
-    "description": "Create React Native StyleSheet"
-  },
   // CommonJS
   "require": {
     "prefix": "req",
@@ -80,6 +69,7 @@
   },
   "importDestructing": {
     "prefix": "impd",
-    "body": "import { $2 } from '$1';"
+    "body": "import { $2 } from '$1';",
+    "description": "Import element from module"
   },
 }
