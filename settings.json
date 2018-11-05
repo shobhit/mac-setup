@@ -14,7 +14,6 @@
   "editor.formatOnPaste": true,
   "editor.detectIndentation": false,
   "editor.dragAndDrop": false,
-  "editor.snippetSuggestions": "top",
   "problems.decorations.enabled": false,
   "explorer.openEditors.visible": 0,
   "explorer.decorations.colors": false,
@@ -32,6 +31,10 @@
   "material-icon-theme.opacity": 0.8,
   "eslint.autoFixOnSave": true,
   "npm.enableScriptExplorer": true,
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false,
+  "workbench.enableExperiments": false,
+  "workbench.editor.tabSizing": "shrink",
   "bracketPairColorizer.activeScopeCSS": [
     "borderColor : {color}; opacity: 0.5",
     "backgroundColor : {color}"
@@ -53,5 +56,5 @@
   "colorize.colorized_variables": [
     "CSS",
     "SASS"
-  ],
+  ]
 }

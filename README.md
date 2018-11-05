@@ -17,7 +17,7 @@
   <br>
 </div>
 
-This document describes how I set up front end web development environment on my MacBook Air with **macOS Mojave 10.14**.
+This document describes how I set up front end web development environment on my MacBook Air with **macOS Mojave 10.14.1**.
 
 ---
 
@@ -40,7 +40,7 @@ This document describes how I set up front end web development environment on my
 
 You can follow the instructions below or use shell script to configure settings automatically. If you decided on the second option there are two ways:
 
-- clone/download the repository into your computer and execute `install.sh` from repo root directory:
+- clone/download the repository into your computer and execute `install.sh` from the repository root directory:
 
 ```shell
 $ cd mac-setup
@@ -50,7 +50,7 @@ Flat.terminal          script                 snippets.code-snippets
 $ bash script/install.sh
 ```
 
-- one line installation - open your terminal and paste the following code:
+- one line installation - open your terminal and enter the following code:
  
 ```shell
 $ curl -L https://github.com/appalaszynski/mac-setup/archive/master.tar.gz | tar -xvz; cd mac-setup-master; chmod +x script/install.sh; script/install.sh
@@ -65,16 +65,16 @@ $ curl -L https://github.com/appalaszynski/mac-setup/archive/master.tar.gz | tar
 
 ## System Preferences
 
-After clean install of operating system there are a couple of tweaks I like to make to the System Preferences. Some of them are not strictly related to web development environment - I use them because of my personal habits.
+After a clean install of the operating system, there are a couple of tweaks I like to make to the System Preferences. Some of them are not strictly related to web development environment - I use them because of my personal habits.
 
-- General > User dark menu bar and Dock
+- General > Appearance > Dark
 - General > Ask to keep changes when closing documents
 - General > Close windows when quitting an app
 - Dock > Automatically hide and show the Dock
 - Keyboard > Key Repeat > Fast (all the way to the right)
 - Keyboard > Delay Until Repeat > Short (all the way to the right)
 
-Much more settings can be configured by macOS `defaults` - command line utility that manipulates system configuration files. The system stores user preferences in a `.plist` files located in `~/Library/Preferences` directory.
+Much more settings can be configured via macOS `defaults` - command line utility that manipulates system configuration files. The system stores user preferences in a `.plist` files located in `~/Library/Preferences` directory.
 
 ### Set Dock Size
 
@@ -84,9 +84,9 @@ In my opinion, the best size of the dock is `35`. Remember that this is due to t
 $ defaults write com.apple.dock tilesize -int 35; killall Dock
 ```
 
-### Disable "Press and hold"
+### Disable Press and Hold
 
-"Press and Hold" function is used to create accents or diacritical marks. I don't need it, so I turn it off. You can always turn it on back by changing `false` to `true`.
+Press and Hold function is used to create accents or diacritical marks. I don't need it, so I turn it off. You can always turn it back on by changing `false` to `true`.
 
 ```shell
 $ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
@@ -128,7 +128,7 @@ Setting a firmware password prevents your Mac from starting up from any device o
 $ firmwarepasswd -setpasswd -setmode command
 ```
 
-You can find a lot more settings in [defaults.sh](https://github.com/appalaszynski/mac-setup/blob/master/api/defaults.sh).
+You can find a lot more settings in [defaults.sh](https://github.com/appalaszynski/mac-setup/blob/master/script/defaults.sh).
 
 ---
 
@@ -140,7 +140,7 @@ I use my custom Terminal profile which I called **Flat**. You can download it by
 $ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/Flat.terminal
 ```
 
-To use it as default profile, open downloaded `Flat.terminal` file and click **Shell** > **Use settings as default** option.
+To use it as the default profile, open downloaded `Flat.terminal` file and click **Shell** > **Use settings as default** option.
 
 ---
 
@@ -193,9 +193,9 @@ export PS1;
 ```
 
 When bash is invoked it looks for `~/.bash_profile`, reads it and executes commands from it.
-In my `.bash_profile` file I create, among others, a `brewup` alias (keyboard shortcut to avoiding typing a long command sequence) to keep Homebrew (which we are going to install in a second) up to date. I also set color scheme for `ls` command output and configure custom prompt which contains username, computer name, working directory and current Git branch.
+In my `.bash_profile` file I create, among others, a `brewup` alias (keyboard shortcut to avoiding typing a long command sequence) to keep Homebrew (which we are going to install in a second) up to date. I also set the color scheme for `ls` command output and configure custom prompt, which contains username, computer name, working directory and current Git branch.
 
-To download my `.bash_profile` and execute its content use:
+To download my `.bash_profile` and execute its content:
 
 ```shell
 $ cd ~
@@ -207,20 +207,16 @@ $ source ~/.bash_profile
 
 ## Homebrew
 
-[Homebrew](http://brew.sh/) package manager allows to install almost any application right from the command line.
-
-### Installation
+[Homebrew](http://brew.sh/) package manager allows to install almost any application right from the command line:
 
 ```shell
 $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-### Usage
-
-To install Homebrew package use ```brew install <package>```:
+Now, to install Homebrew package you can use use ```brew install <package>```, for example:
 
 ```shell
-$ brew install <package name>
+$ brew install git
 ```
 
 To install GUI macOS applications use [Homebrew Cask](https://github.com/Homebrew/homebrew-cask):
@@ -236,39 +232,42 @@ Installing each application and package separately may take some time. [Homebrew
 Here are all applications I usually install with a brief description.
 
 - [Git](https://git-scm.com) - version control system
+- [Ruby](https://www.ruby-lang.org) - programming language
 - [mas-cli](https://github.com/mas-cli/mas) - Mac App Store command line interface
-- [AppCleaner](https://freemacsoft.net/appcleaner/) - apps uninstaller
+- [AppCleaner](https://freemacsoft.net/appcleaner) - apps uninstaller
 - [Background Music](https://github.com/kyleneideck/BackgroundMusic) - audio utility
-- [Cyberduck](https://cyberduck.io/) - FTP client
-- [draw.io](https://www.draw.io/) - diagramming tool
-- [Firefox](https://www.mozilla.org/firefox/new/) - web browser
+- [Cyberduck](https://cyberduck.io) - FTP client
+- [draw.io](https://www.draw.io) - diagramming tool
+- [Firefox](https://www.mozilla.org/firefox) - web browser
 - [Flux](https://justgetflux.com) - screen color temperature adjusting app
 - [Fork](https://git-fork.com) - Git GUI client
-- [Google Chrome](https://www.google.pl/chrome/browser/desktop/index.html) - web browser
-- [GPG Suite](https://gpgtools.org/) - communication and files encryption tools
+- [Google Chrome](https://www.google.com/chrome/) - web browser
+- [GPG Suite](https://gpgtools.org) - communication and files encryption tools
 - [KeepingYouAwake](https://github.com/newmarcel/KeepingYouAwake) - app which prevents Mac from entering sleep mode
 - [Keka](http://www.kekaosx.com) - file archiver
-- [MAMP](https://www.mamp.info/en/) - Apache, MySQL and PHP package
+- [MAMP](https://www.mamp.info) - Apache, MySQL and PHP package
 - [Opera](http://www.opera.com) - web browser
 - [Postman](https://www.getpostman.com) - API testing tool
 - [Sequel Pro](http://www.sequelpro.com) - MySQL GUI tool
 - [Skype](https://www.skype.com) - voice and video chat
 - [Slack](https://slack.com) - team collaboration tools
 - [Spectacle](https://www.spectacleapp.com) - window manager
+- [Spotify](https://www.spotify.com) - digital music service
 - [Transmission](https://transmissionbt.com) - BitTorrent client
-- [Tunnelblick](https://tunnelblick.net/) - GUI for OpenVPN
+- [Tunnelblick](https://tunnelblick.net) - GUI for OpenVPN
 - [Visual Studio Code](https://code.visualstudio.com) - code editor
-- [VLC](https://www.videolan.org/vlc/) - media player
-- [iMovie](https://www.apple.com/imovie/) - video editor
-- [Numbers](https://www.apple.com/numbers/) - spreadsheet editor
-- [Pages](https://www.apple.com/pages/) - text editor
-- [Xcode](https://developer.apple.com/xcode/) - IDE for developing software for Apple products
+- [VLC](https://www.videolan.org/vlc) - media player
+- [iMovie](https://www.apple.com/imovie) - video editor
+- [Numbers](https://www.apple.com/numbers) - spreadsheet editor
+- [Pages](https://www.apple.com/pages) - text editor
+- [Xcode](https://developer.apple.com/xcode) - IDE for developing software for Apple products
 
 Below are the entire contents of my `Brewfile`.
 
 ```ruby
-# Install Git and mas-cli via Homebrew
+# Install Git, Ruby and mas-cli via Homebrew
 brew 'git' 
+brew 'ruby' 
 brew 'mas'
 
 # Install applications via Homebrew Cask
@@ -290,6 +289,7 @@ cask 'sequel-pro'
 cask 'skype'
 cask 'slack'
 cask 'spectacle'
+cask 'spotify'
 cask 'transmission'
 cask 'tunnelblick'
 cask 'visual-studio-code'
@@ -302,10 +302,10 @@ mas "Pages", id: 409201541
 mas "Xcode", id: 497799835
 ```
 
-To check App Store application ID you must install `mas-cli` first. Then use:
+To check App Store application ID you must install `mas-cli` first. Then, use `mac search <app name>`, for example:
 
 ```shell
-$ mas search <app name>
+$ mas search pages
 ```
 
 My `Brewfile` file can be downloaded using:
@@ -320,7 +320,7 @@ To install listed applications type:
 $ brew bundle
 ```
 
-in directory that contains `Brewfile`.
+in a directory that contains `Brewfile`.
 
 ---
 
@@ -333,7 +333,7 @@ $ git config --global user.name "First Last"
 $ git config --global user.email "email@email.com"
 ```
 
-The other and faster way is creating the Git configuration file (`~/.gitconfig`) and input it all ourselves.
+The other and faster way is creating the Git configuration file (`~/.gitconfig`) and input it all ourselves:
 
 ```shell
 $ cd ~
@@ -355,14 +355,14 @@ Here I set my name, email, core editor and connect Git to the macOS Keychain so 
 
 ### SSH
 
-You can also authenticate with GiHub using SSH key. To generate it use following code:
+You can also authenticate with GiHub using SSH key:
 
 ```shell
 $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ```
 
 Above command will create a private key (`id_rsa`) and public key (`id_rsa.pub`) in `~/.ssh` directory.
-Next, add your newly created SSH key to the ssh-agent to be able to manage your keys.
+Next, add your newly created SSH key to the ssh-agent to be able to manage your keys:
 
 ```shell
 $ ssh-add <path to private key>
@@ -370,7 +370,7 @@ $ ssh-add <path to private key>
 
 Now just login into your Github account and paste content of `id_rsa.pub` file in **Settings** > **SSH and GPG keys** > **New SSH key**.
 
-After you've set up your SSH key and added it to your GitHub account, you can test your connection. Open terminal and paste following code:
+After you've set up your SSH key and added it to your GitHub account, you can test your connection. Open terminal and enter the following code:
 
 ```shell
 $ ssh -T git@github.com
@@ -378,7 +378,7 @@ $ ssh -T git@github.com
 
 After verifying fingerprint by typing `yes` you should see the following message:
 
-```shell
+```
 Hi <your username>! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
@@ -386,19 +386,19 @@ Hi <your username>! You've successfully authenticated, but GitHub does not provi
 
 ## Node.js
 
-For installation of Node.js I like to use [Node Version Manager](https://github.com/creationix/nvm) (nvm). To download it type:
+For installation of the Node.js I like to use [Node Version Manager](https://github.com/creationix/nvm):
 
 ```shell
 $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 ```
 
-You can check all available Node.js versions by typing:
+Now, you can list all available Node.js versions:
 
 ```shell
 $ nvm list-remote
 ```
 
-To install specific version type:
+To install specific Node.js version:
 
 ```shell
 $ nvm install <version>
@@ -414,7 +414,7 @@ Packages which I use globally at the moment are:
 * [live-server](http://tapiov.net/live-server/)
 * [create-react-app](https://github.com/facebook/create-react-app)
 
-To install them use:
+To install npm packages globally use `npm install` with `-g` flag:
 
 ```shell
 $ npm install -g gulp-cli jest live-server create-react-app
@@ -424,21 +424,21 @@ $ npm install -g gulp-cli jest live-server create-react-app
 
 ## Web Browsers
 
-Currently, I have installed all major web browsers:
+I have installed all major web browsers:
 
 - [Chrome](https://www.google.com/chrome/)
 - [Safari](https://www.apple.com/safari/)
 - [Opera](https://www.opera.com/)
 - [Firefox](https://www.mozilla.org/en-US/firefox/)
 
-For main development I use Google Chrome.
+For development I use Chrome. To see how your site renders on Microsoft browsers like Edge or Internet Explorer you can use [Microsoft Developer Tools](https://developer.microsoft.com/en-us/microsoft-edge/tools/screenshots/) to generate screenshots for each of them.
 
 ### Chrome Extensions
 
 - [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm) - block ads
 - [Privacy Badger](https://chrome.google.com/webstore/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp) - block spying ads and invisible trackers
 - [Nano Defender](https://chrome.google.com/webstore/detail/nano-defender/ggolfgbegefeeoocgjbmkembbncoadlb) - anti-adblock defuser
-- [HTTPS Everywhere](https://chrome.google.com/webstore/detail/https-everywhere/gcbommkclmclpchllfjekcdonpmejbdp?hl=pl) - automatically switch from "http" to "https"
+- [HTTPS Everywhere](https://chrome.google.com/webstore/detail/https-everywhere/gcbommkclmclpchllfjekcdonpmejbdp?hl=pl) - automatically switch from http to https
 - [JSONView](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc) - validate and view JSON documents
 - [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) - inspect component hierarchies and states
 - [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) - inspect and debug state changes
@@ -468,7 +468,6 @@ Here are my `settings.json` contents:
   "editor.formatOnPaste": true,
   "editor.detectIndentation": false,
   "editor.dragAndDrop": false,
-  "editor.snippetSuggestions": "top",
   "problems.decorations.enabled": false,
   "explorer.openEditors.visible": 0,
   "explorer.decorations.colors": false,
@@ -486,6 +485,10 @@ Here are my `settings.json` contents:
   "material-icon-theme.opacity": 0.8,
   "eslint.autoFixOnSave": true,
   "npm.enableScriptExplorer": true,
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false,
+  "workbench.enableExperiments": false,
+  "workbench.editor.tabSizing": "shrink",
   "bracketPairColorizer.activeScopeCSS": [
     "borderColor : {color}; opacity: 0.5",
     "backgroundColor : {color}"
@@ -511,7 +514,7 @@ Here are my `settings.json` contents:
 }
 ```
 
-You can copy and paste them or just download whole file by typing:
+You can copy and paste them or just download my `settings.json` file:
 
 ```shell
 $ cd /Users/<your username>/Library/Application Support/Code/User
@@ -532,15 +535,16 @@ $ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/setti
 - [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense) -  autocomplete filenames
 - [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager) - manage projects right inside VS Code
 - [SCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-scss) - autocomplete variables, mixins, functions etc.
+- [vscode-styled-components](https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components) - syntax highlighting and IntelliSense for styled-components
 
-To install all extensions by one command use:
+To install all extensions by one command:
 
 ```shell
-$ code --install-extension CoenraadS.bracket-pair-colorizer --install-extension PKief.material-icon-theme --install-extension alefragnani.project-manager --install-extension christian-kohler.path-intellisense --install-extension dbaeumer.vscode-eslint --install-extension formulahendry.auto-rename-tag --install-extension mrmlnc.vscode-scss --install-extension msjsdiag.debugger-for-chrome --install-extension techer.open-in-browser --install-extension aaron-bond.better-comments --install-extension kamikillerto.vscode-colorize --install-extension christian-kohler.npm-intellisense
+$ code --install-extension CoenraadS.bracket-pair-colorizer --install-extension PKief.material-icon-theme --install-extension alefragnani.project-manager --install-extension christian-kohler.path-intellisense --install-extension dbaeumer.vscode-eslint --install-extension formulahendry.auto-rename-tag --install-extension mrmlnc.vscode-scss --install-extension msjsdiag.debugger-for-chrome --install-extension techer.open-in-browser --install-extension aaron-bond.better-comments --install-extension kamikillerto.vscode-colorize --install-extension christian-kohler.npm-intellisense --install-extension jpoissonnier.vscode-styled-components
 ```
 
 ### Snippets
 
-I use my own global snippets instead of installing snippets extensions. User custom global snippets are located in `/Users/<your username>/Library/Application Support/Code/User/snippets` as files with `code-snippets` extension. You can easily create or edit them by going to **Code** > **Preferences** > **User Snippets**.
+I created my own global snippets instead of installing an extensions. User custom global snippets are located in `/Users/<your username>/Library/Application Support/Code/User/snippets` as files with `code-snippets` extension. You can easily create or edit them by going to **Code** > **Preferences** > **User Snippets**.
 
 You can find all my snippets in [snippets.code-snippets](https://github.com/appalaszynski/mac-setup/blob/master/snippets.code-snippets).
