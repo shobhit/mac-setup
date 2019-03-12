@@ -25,11 +25,11 @@ ARROW="$CYAN$BOLD==>$DEFAULT"
 ARROW_GREEN="$GREEN$BOLD==>$DEFAULT"
 ARROW_YELLOW="$YELLOW$BOLD==>$DEFAULT"
 # Array of available applications that can be installed via Homebrew Cask
-AVAILABLE_CASK_APPLICATIONS=(appcleaner background-music cyberduck drawio firefox flux fork google-chrome gpg-suite keepingyouawake keka mamp opera postman sequel-pro skype slack spectacle spotify transmission tunnelblick visual-studio-code vlc)
+AVAILABLE_CASK_APPLICATIONS=(appcleaner background-music cyberduck drawio firefox flux google-chrome gpg-suite keepingyouawake keka mamp opera postman sequel-pro skype slack sourcetree spectacle spotify transmission tunnelblick visual-studio-code vlc)
 # Array of available npm packages
 AVAILABLE_NPM_PACKAGES=(gulp-cli jest live-server create-react-app)
 # Array of available VS Code extensions
-AVAILABLE_VSCODE_EXTENSIONS=(CoenraadS.bracket-pair-colorizer PKief.material-icon-theme alefragnani.project-manager christian-kohler.path-intellisense dbaeumer.vscode-eslint formulahendry.auto-rename-tag mrmlnc.vscode-scss msjsdiag.debugger-for-chrome techer.open-in-browser aaron-bond.better-comments kamikillerto.vscode-colorize christian-kohler.npm-intellisense jpoissonnier.vscode-styled-components)
+AVAILABLE_VSCODE_EXTENSIONS=(CoenraadS.bracket-pair-colorizer msjsdiag.debugger-for-chrome dbaeumer.vscode-eslint eamodio.gitlens esbenp.prettier-vscode jpoissonnier.vscode-styled-components PKief.material-icon-theme techer.open-in-browser)
 # Arrays of applications/packages/extensions selected by user (empty by default)
 SELECTED_CASK_APPLICATIONS=()
 SELECTED_NPM_PACKAGES=()
@@ -304,6 +304,19 @@ if $IS_VSCODE_INSTALLED; then
   if [ "$REPLY" == "y" ]; then
     echo "${ARROW} Configuring Visual Studio Code snippets..."
     cp snippets.code-snippets /Users/${USER}/Library/Application\ Support/Code/User/snippets
+  fi
+fi
+
+#----------------------------
+# VS Code keybindings
+#----------------------------
+
+if $IS_VSCODE_INSTALLED; then
+  read -p "${ARROW_YELLOW} Configure Visual Studio Code keybindings? [y/n]: "
+
+  if [ "$REPLY" == "y" ]; then
+    echo "${ARROW} Configuring Visual Studio Code keybindings..."
+    cp keybindings.json /Users/${USER}/Library/Application\ Support/Code/User
   fi
 fi
 

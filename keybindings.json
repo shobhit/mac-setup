@@ -1,0 +1,11 @@
+[
+  {
+    "key": "cmd+l",
+    "command": "workbench.files.action.showActiveFileInExplorer"
+  },
+  {
+    "key": "cmd+i",
+    "command": "expandLineSelection",
+    "when": "textInputFocus"
+  }
+]

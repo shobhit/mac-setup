@@ -17,7 +17,7 @@
   <br>
 </div>
 
-This document describes how I set up front end web development environment on my MacBook Air with **macOS Mojave 10.14.1**.
+This document describes how I set up front end web development environment on my MacBook Air with **macOS Mojave 10.14.3**.
 
 ---
 
@@ -51,7 +51,7 @@ $ bash script/install.sh
 ```
 
 - one line installation - open your terminal and enter the following code:
- 
+
 ```shell
 $ curl -L https://github.com/appalaszynski/mac-setup/archive/master.tar.gz | tar -xvz; cd mac-setup-master; chmod +x script/install.sh; script/install.sh
 ```
@@ -150,7 +150,7 @@ To use it as the default profile, open downloaded `Flat.terminal` file and click
 # Update Homebrew itself, upgrade all packages, remove dead symlinks, remove old versions
 # of installed formulas, clean old downloads from cache, remove versions of formulas, which
 # are downloaded, but not installed, check system for potential problems
-alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
+alias brewup='brew update; brew upgrade; brew cask upgrade; brew cleanup; brew doctor'
 
 # Easier navigation
 alias ..="cd .."
@@ -213,7 +213,7 @@ $ source ~/.bash_profile
 $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Now, to install Homebrew package you can use use ```brew install <package>```, for example:
+Now, to install Homebrew package you can use use `brew install <package>`, for example:
 
 ```shell
 $ brew install git
@@ -240,7 +240,6 @@ Here are all applications I usually install with a brief description.
 - [draw.io](https://www.draw.io) - diagramming tool
 - [Firefox](https://www.mozilla.org/firefox) - web browser
 - [Flux](https://justgetflux.com) - screen color temperature adjusting app
-- [Fork](https://git-fork.com) - Git GUI client
 - [Google Chrome](https://www.google.com/chrome/) - web browser
 - [GPG Suite](https://gpgtools.org) - communication and files encryption tools
 - [KeepingYouAwake](https://github.com/newmarcel/KeepingYouAwake) - app which prevents Mac from entering sleep mode
@@ -251,6 +250,7 @@ Here are all applications I usually install with a brief description.
 - [Sequel Pro](http://www.sequelpro.com) - MySQL GUI tool
 - [Skype](https://www.skype.com) - voice and video chat
 - [Slack](https://slack.com) - team collaboration tools
+- [Sourcetree](https://www.sourcetreeapp.com/) - Git GUI client
 - [Spectacle](https://www.spectacleapp.com) - window manager
 - [Spotify](https://www.spotify.com) - digital music service
 - [Transmission](https://transmissionbt.com) - BitTorrent client
@@ -266,8 +266,8 @@ Below are the entire contents of my `Brewfile`.
 
 ```ruby
 # Install Git, Ruby and mas-cli via Homebrew
-brew 'git' 
-brew 'ruby' 
+brew 'git'
+brew 'ruby'
 brew 'mas'
 
 # Install applications via Homebrew Cask
@@ -277,7 +277,6 @@ cask 'cyberduck'
 cask 'drawio'
 cask 'firefox'
 cask 'flux'
-cask 'fork'
 cask 'google-chrome'
 cask 'gpg-suite'
 cask 'keepingyouawake'
@@ -288,6 +287,7 @@ cask 'postman'
 cask 'sequel-pro'
 cask 'skype'
 cask 'slack'
+cask 'sourcetree'
 cask 'spectacle'
 cask 'spotify'
 cask 'transmission'
@@ -389,7 +389,7 @@ Hi <your username>! You've successfully authenticated, but GitHub does not provi
 For installation of the Node.js I like to use [Node Version Manager](https://github.com/creationix/nvm):
 
 ```shell
-$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 ```
 
 Now, you can list all available Node.js versions:
@@ -409,10 +409,11 @@ $ nvm install <version>
 ## Node Package Manager
 
 Packages which I use globally at the moment are:
-* [gulp-cli](https://gulpjs.com)
-* [jest](http://jestjs.io/)
-* [live-server](http://tapiov.net/live-server/)
-* [create-react-app](https://github.com/facebook/create-react-app)
+
+- [gulp-cli](https://gulpjs.com)
+- [jest](http://jestjs.io/)
+- [live-server](http://tapiov.net/live-server/)
+- [create-react-app](https://github.com/facebook/create-react-app)
 
 To install npm packages globally use `npm install` with `-g` flag:
 
@@ -439,7 +440,7 @@ For development I use Chrome. To see how your site renders on Microsoft browsers
 - [Privacy Badger](https://chrome.google.com/webstore/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp) - block spying ads and invisible trackers
 - [Nano Defender](https://chrome.google.com/webstore/detail/nano-defender/ggolfgbegefeeoocgjbmkembbncoadlb) - anti-adblock defuser
 - [HTTPS Everywhere](https://chrome.google.com/webstore/detail/https-everywhere/gcbommkclmclpchllfjekcdonpmejbdp?hl=pl) - automatically switch from http to https
-- [JSONView](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc) - validate and view JSON documents
+- [JSON Viewer](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh) - validate and view JSON documents
 - [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) - inspect component hierarchies and states
 - [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) - inspect and debug state changes
 - [Pesticide](https://chrome.google.com/webstore/detail/pesticide-for-chrome/bblbgcheenepgnnajgfpiicnbbdmmooh) - toggle different colored outlines on every element for quick CSS layout debug
@@ -449,7 +450,7 @@ For development I use Chrome. To see how your site renders on Microsoft browsers
 ## Visual Studio Code
 
 All default settings changes are stored in `settings.json` file located in `/Users/<your username>/Library/Application Support/Code/User`. You can open it by pressing `Command ⌘` + `Shift ⇧` + `p` and choosing `Preferences: Open Settings (JSON)`.
-Here are my `settings.json` contents: 
+Here are my `settings.json` contents:
 
 ```json
 {
@@ -460,17 +461,26 @@ Here are my `settings.json` contents:
   "workbench.statusBar.feedback.visible": false,
   "workbench.list.openMode": "doubleClick",
   "workbench.tips.enabled": false,
+  "workbench.enableExperiments": false,
+  "workbench.editor.tabSizing": "shrink",
   "editor.fontSize": 12,
   "editor.tabSize": 2,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.wordWrap": "on",
   "editor.minimap.enabled": false,
-  "editor.formatOnPaste": true,
   "editor.detectIndentation": false,
   "editor.dragAndDrop": false,
+  "editor.renderLineHighlight": "all",
+  "editor.formatOnSave": true,
   "problems.decorations.enabled": false,
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false,
   "explorer.openEditors.visible": 0,
   "explorer.decorations.colors": false,
+  "explorer.autoReveal": false,
+  "breadcrumbs.enabled": true,
+  "breadcrumbs.symbolPath": "off",
+  "terminal.integrated.rendererType": "dom",
   "extensions.showRecommendationsOnlyOnDemand": true,
   "extensions.ignoreRecommendations": true,
   "files.insertFinalNewline": true,
@@ -479,38 +489,18 @@ Here are my `settings.json` contents:
     "**/.localized": true
   },
   "html.autoClosingTags": false,
+  "npm.enableScriptExplorer": true,
   "material-icon-theme.folders.theme": "classic",
   "material-icon-theme.hidesExplorerArrows": true,
   "material-icon-theme.folders.color": "#90a4ae",
   "material-icon-theme.opacity": 0.8,
-  "eslint.autoFixOnSave": true,
-  "npm.enableScriptExplorer": true,
-  "telemetry.enableTelemetry": false,
-  "telemetry.enableCrashReporter": false,
-  "workbench.enableExperiments": false,
-  "workbench.editor.tabSizing": "shrink",
   "bracketPairColorizer.activeScopeCSS": [
     "borderColor : {color}; opacity: 0.5",
     "backgroundColor : {color}"
   ],
+  "eslint.autoFixOnSave": true,
   "bracketPairColorizer.highlightActiveScope": true,
-  "colorize.languages": [
-    "css",
-    "sass",
-    "scss",
-    "less",
-    "postcss",
-    "sss",
-    "stylus",
-    "xml",
-    "svg",
-    "javascript",
-    "javascriptreact"
-  ],
-  "colorize.colorized_variables": [
-    "CSS",
-    "SASS"
-  ],
+  "prettier.eslintIntegration": true
 }
 ```
 
@@ -523,24 +513,19 @@ $ curl -O https://raw.githubusercontent.com/appalaszynski/mac-setup/master/setti
 
 ### Extensions
 
-- [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag) - automatically rename paired HTML tag
-- [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments) - create more human-friendly comments by highlighting annotations within code
 - [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer) - match brackets to be identified with colours
-- [colorize](https://marketplace.visualstudio.com/items?itemName=kamikillerto.vscode-colorize) - visualize CSS colors in CSS/Sass/Less/PostCSS/Stylus/XML files (works also with variables)
 - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) - debug JavaScript code running in Google Chrome from VS Code
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - integrate ESLint into VS Code
+- [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) - supercharge the Git capabilities built into VS Code
 - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) - icons based on Material Design
-- [npm Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense) - autocomplete npm modules in import statements
 - [open in browser](https://marketplace.visualstudio.com/items?itemName=techer.open-in-browser) - open any file in browser right from VS Code explorer
-- [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense) -  autocomplete filenames
-- [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager) - manage projects right inside VS Code
-- [SCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-scss) - autocomplete variables, mixins, functions etc.
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - VS Code package to format files using Prettier.
 - [vscode-styled-components](https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components) - syntax highlighting and IntelliSense for styled-components
 
 To install all extensions by one command:
 
 ```shell
-$ code --install-extension CoenraadS.bracket-pair-colorizer --install-extension PKief.material-icon-theme --install-extension alefragnani.project-manager --install-extension christian-kohler.path-intellisense --install-extension dbaeumer.vscode-eslint --install-extension formulahendry.auto-rename-tag --install-extension mrmlnc.vscode-scss --install-extension msjsdiag.debugger-for-chrome --install-extension techer.open-in-browser --install-extension aaron-bond.better-comments --install-extension kamikillerto.vscode-colorize --install-extension christian-kohler.npm-intellisense --install-extension jpoissonnier.vscode-styled-components
+$ code --install-extension CoenraadS.bracket-pair-colorizer --install-extension msjsdiag.debugger-for-chrome --install-extension dbaeumer.vscode-eslint --install-extension eamodio.gitlens --install-extension esbenp.prettier-vscode --install-extension jpoissonnier.vscode-styled-components --install-extension PKief.material-icon-theme --install-extension techer.open-in-browser
 ```
 
 ### Snippets
@@ -548,3 +533,9 @@ $ code --install-extension CoenraadS.bracket-pair-colorizer --install-extension 
 I created my own global snippets instead of installing an extensions. User custom global snippets are located in `/Users/<your username>/Library/Application Support/Code/User/snippets` as files with `code-snippets` extension. You can easily create or edit them by going to **Code** > **Preferences** > **User Snippets**.
 
 You can find all my snippets in [snippets.code-snippets](https://github.com/appalaszynski/mac-setup/blob/master/snippets.code-snippets).
+
+### Keybindings
+
+Custom Visual Studio Code keybindings are located in `/Users/<your username>/Library/Application Support/Code/User` as `keybindings.json` file. To manage them go to **Code** > **Preferences** > **Keyboard Shortcuts**.
+
+My keybindingsa are listed in [keybindings.json](https://github.com/appalaszynski/mac-setup/blob/master/keybindings.json).
